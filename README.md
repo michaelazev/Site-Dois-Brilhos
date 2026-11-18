@@ -72,7 +72,7 @@ scripts/            Geradores das imagens de exemplo e do seed.sql
 
 Os números dos atendentes são editáveis em **Painel → Conteúdo do site → Atendentes (WhatsApp)**.
 
-> ⚠️ **Confirme o número da Nicolly.** O número informado (+55 81 9640-4201) tem 8 dígitos após o DDD. Celulares brasileiros normalmente têm 9 (ex.: 9**9**640-4201). O site está usando exatamente o número fornecido (`558196404201`); use o botão “Testar link” no painel para conferir.
+Números atuais: **Michael** `5581998070744` (+55 81 99807-0744) · **Nicolly** `5581996404201` (+55 81 99640-4201).
 
 ---
 

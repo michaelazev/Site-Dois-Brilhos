@@ -97,7 +97,7 @@
     },
     "attendants": [
       { "id": "michael", "name": "Michael", "phone": "5581998070744", "active": true },
-      { "id": "nicolly", "name": "Nicolly", "phone": "558196404201", "active": true }
+      { "id": "nicolly", "name": "Nicolly", "phone": "5581996404201", "active": true }
     ],
     "instagram": {
       "handle": "doisbrilhos.ofc",
