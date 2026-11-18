@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Category } from '@/types';
 import { SmartImage } from '../ui/SmartImage';
-import { staggerChild, staggerParent } from '../motion/Reveal';
+import { staggerChild, staggerParent, VIEWPORT_MARGIN } from '../motion/Reveal';
 import { SectionHeading } from '../ui/SectionHeading';
 
 export function CategoryShowcase({ categories }: { categories: Category[] }) {
@@ -14,7 +14,7 @@ export function CategoryShowcase({ categories }: { categories: Category[] }) {
         className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 md:mx-0 md:grid md:grid-cols-5 md:gap-5 md:overflow-visible md:px-0"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.05, margin: VIEWPORT_MARGIN }}
         variants={staggerParent}
       >
         {categories.map((c, i) => (

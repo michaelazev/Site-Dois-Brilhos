@@ -50,8 +50,8 @@ function seed(): DemoDb {
     created_at: new Date(now - i * 86_400_000).toISOString(),
   }));
   const images: ProductImage[] = demo.products.flatMap((p) => [
-    { id: uid(), product_id: p.id, url: `/demo/${p.slug}-1.svg`, path: null, alt: `${p.name} (imagem de exemplo)`, sort_order: 0, is_primary: true },
-    { id: uid(), product_id: p.id, url: `/demo/${p.slug}-2.svg`, path: null, alt: `${p.name} — detalhe (imagem de exemplo)`, sort_order: 1, is_primary: false },
+    { id: uid(), product_id: p.id, url: `/demo/${p.slug}-1.webp`, path: null, alt: `${p.name} (imagem de exemplo)`, sort_order: 0, is_primary: true },
+    { id: uid(), product_id: p.id, url: `/demo/${p.slug}-2.webp`, path: null, alt: `${p.name} — detalhe (imagem de exemplo)`, sort_order: 1, is_primary: false },
   ]);
   const variants: ProductVariant[] = demo.variants.map((v, i) => ({
     id: uid(),

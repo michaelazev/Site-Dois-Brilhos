@@ -33,7 +33,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.98 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="pointer-events-auto flex max-w-md items-center gap-3 rounded-full bg-emerald-deep/95 py-3 pl-4 pr-3 text-sm text-ivory shadow-2xl shadow-emerald-deep/30 backdrop-blur"
+              className="pointer-events-auto flex max-w-md items-center gap-3 rounded-full bg-emerald-deep/95 py-3 pl-4 pr-3 text-sm text-ivory shadow-2xl shadow-emerald-deep/30 md:backdrop-blur"
               role={t.tone === 'error' ? 'alert' : 'status'}
             >
               {t.tone === 'error' ? <AlertCircle className="size-4 shrink-0 text-rose-300" /> : <Check className="size-4 shrink-0 text-gold-light" />}

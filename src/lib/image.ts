@@ -24,6 +24,18 @@ export async function compressImage(file: File, maxSize = 1600, quality = 0.86):
   return jpeg ?? file;
 }
 
+/**
+ * URL da versão pequena (~480px) de uma foto de produto, usada nos cards e miniaturas.
+ * Convenção: "<arquivo>-sm.webp" ao lado do original (gerado no upload e nas imagens de exemplo).
+ * Para URLs sem versão pequena conhecida, devolve a própria URL.
+ */
+export function smallImageUrl(url: string | null | undefined): string | null {
+  if (!url) return null;
+  if (/\/demo\/.+-\d\.webp$/.test(url)) return url.replace(/\.webp$/, '-sm.webp');
+  if (/\/storage\/v1\/object\/public\/product-images\/produtos\/[^?]+\.webp$/.test(url)) return url.replace(/\.webp$/, '-sm.webp');
+  return url;
+}
+
 export function blobToDataUrl(blob: Blob): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();

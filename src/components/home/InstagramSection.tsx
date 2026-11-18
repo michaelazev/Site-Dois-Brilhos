@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Instagram } from 'lucide-react';
 import type { SiteSettings } from '@/types';
-import { Reveal, staggerChild, staggerParent } from '../motion/Reveal';
+import { Reveal, staggerChild, staggerParent, VIEWPORT_MARGIN } from '../motion/Reveal';
 import { Sparkle } from '../brand/Logo';
 import { SmartImage } from '../ui/SmartImage';
 
@@ -29,7 +29,7 @@ export function InstagramSection({ instagram }: { instagram: SiteSettings['insta
           className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:gap-4 lg:grid-cols-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05, margin: VIEWPORT_MARGIN }}
           variants={staggerParent}
         >
           {posts.slice(0, 6).map((p, i) => (

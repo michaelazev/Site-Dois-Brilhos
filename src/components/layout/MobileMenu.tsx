@@ -34,11 +34,13 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
     <AnimatePresence>
       {open && (
         <motion.div
-          className="grain fixed inset-0 z-[70] flex flex-col overflow-y-auto bg-emerald-deep text-ivory lg:hidden"
-          initial={{ clipPath: 'circle(0% at 2.5rem 2.25rem)' }}
-          animate={{ clipPath: 'circle(150% at 2.5rem 2.25rem)' }}
-          exit={{ clipPath: 'circle(0% at 2.5rem 2.25rem)' }}
-          transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed inset-0 z-[70] flex flex-col overflow-y-auto overscroll-contain bg-emerald-deep will-change-transform text-ivory lg:hidden"
+          // Deslizar pela esquerda via transform: fluido mesmo em celulares simples
+          // (o círculo com clip-path redesenhava a tela inteira a cada quadro).
+          initial={{ x: '-100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '-100%' }}
+          transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
@@ -57,7 +59,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
             className="container-lux flex flex-1 flex-col justify-center py-8"
             initial="hidden"
             animate="visible"
-            variants={{ visible: { transition: { staggerChildren: 0.05, delayChildren: 0.25 } } }}
+            variants={{ visible: { transition: { staggerChildren: 0.035, delayChildren: 0.15 } } }}
             aria-label="Menu principal"
           >
             {links.map((l) => (

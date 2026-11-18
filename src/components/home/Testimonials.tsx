@@ -28,9 +28,9 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
           <AnimatePresence mode="wait">
             <motion.figure
               key={current.id}
-              initial={{ opacity: 0, y: 16, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="mb-6 flex justify-center gap-1 text-gold" aria-label={`${current.rating} de 5 estrelas`}>

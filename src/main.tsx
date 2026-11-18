@@ -11,7 +11,6 @@ import '@fontsource/cormorant-garamond/500.css';
 import '@fontsource-variable/jost';
 import './styles/index.css';
 import App from './App';
-import { AuthProvider } from './hooks/useAuth';
 import { ToastProvider } from './components/ui/Toast';
 
 // A rolagem é controlada pelo app (volta ao topo após a transição de página).
@@ -28,14 +27,13 @@ createRoot(document.getElementById('root')!).render(
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <AuthProvider>
-            <ToastProvider>
-              {/* reducedMotion="user": respeita "reduzir movimento" do sistema */}
-              <MotionConfig reducedMotion="user">
-                <App />
-              </MotionConfig>
-            </ToastProvider>
-          </AuthProvider>
+          {/* O login (AuthProvider) fica dentro do painel: a vitrine não carrega nada de autenticação. */}
+          <ToastProvider>
+            {/* reducedMotion="user": respeita "reduzir movimento" do sistema */}
+            <MotionConfig reducedMotion="user">
+              <App />
+            </MotionConfig>
+          </ToastProvider>
         </BrowserRouter>
       </QueryClientProvider>
     </HelmetProvider>

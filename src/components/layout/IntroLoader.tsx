@@ -4,23 +4,36 @@ import { SPARKLE_PATH } from '../brand/Logo';
 import { EASE } from '../motion/Reveal';
 
 const KEY = 'db-intro-seen';
+const DURATION_MS = 1300;
 
 // Tipado explicitamente: os tipos do framer-motion 11 rejeitam pathLength numérico inline.
 const drawVariants = {
-  hidden: { pathLength: 0, rotate: -45, opacity: 0 },
-  visible: { pathLength: 1, rotate: 0, opacity: 1 },
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: { pathLength: 1, opacity: 1 },
 } as unknown as Variants;
 
-/** Loading inicial com a identidade Dois Brilhos. Exibido uma vez por sessão. */
+/**
+ * Decide uma única vez, ao abrir o site, se o loading aparece:
+ * somente quando a pessoa chega pela página inicial e ainda não o viu nesta sessão.
+ * Quem abre um link de produto (ex.: vindo do Instagram/WhatsApp) vai direto ao conteúdo.
+ */
+let introPending = (() => {
+  try {
+    return window.location.pathname === '/' && !sessionStorage.getItem(KEY);
+  } catch {
+    return false;
+  }
+})();
+
+/** Atraso (s) para as animações de entrada da Home começarem junto com a saída do loading. */
+export function introDelaySeconds(): number {
+  return introPending ? DURATION_MS / 1000 - 0.15 : 0.1;
+}
+
+/** Loading inicial com a identidade Dois Brilhos. */
 export function IntroLoader() {
   const reduce = useReducedMotion();
-  const [visible, setVisible] = useState(() => {
-    try {
-      return !sessionStorage.getItem(KEY);
-    } catch {
-      return false;
-    }
-  });
+  const [visible, setVisible] = useState(introPending);
 
   useEffect(() => {
     if (!visible) return;
@@ -29,17 +42,12 @@ export function IntroLoader() {
     } catch {
       /* ignore */
     }
-    document.documentElement.style.overflow = 'hidden';
-    const t = setTimeout(() => setVisible(false), reduce ? 500 : 2100);
-    return () => {
-      clearTimeout(t);
-      document.documentElement.style.overflow = '';
-    };
+    const t = setTimeout(() => {
+      introPending = false;
+      setVisible(false);
+    }, reduce ? 300 : DURATION_MS);
+    return () => clearTimeout(t);
   }, [visible, reduce]);
-
-  useEffect(() => {
-    if (!visible) document.documentElement.style.overflow = '';
-  }, [visible]);
 
   const letters = 'DOIS BRILHOS'.split('');
 
@@ -47,13 +55,13 @@ export function IntroLoader() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="grain fixed inset-0 z-[300] flex flex-col items-center justify-center bg-emerald-deep text-ivory"
-          initial={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-          exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
-          transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed inset-0 z-[300] flex flex-col items-center justify-center bg-emerald-deep text-ivory will-change-transform"
+          // saída por transform (GPU) em vez de clip-path (redesenho a cada quadro)
+          exit={{ y: '-100%' }}
+          transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
           aria-hidden="true"
         >
-          <svg viewBox="-1 -1 26 26" className="size-14 text-gold-light">
+          <svg viewBox="-1 -1 26 26" className="size-12 text-gold-light">
             <motion.path
               d={SPARKLE_PATH}
               fill="none"
@@ -63,25 +71,16 @@ export function IntroLoader() {
               initial="hidden"
               animate="visible"
               variants={drawVariants}
-              transition={{ duration: 1.3, ease: EASE }}
-              style={{ originX: '50%', originY: '50%' }}
-            />
-            <motion.path
-              d={SPARKLE_PATH}
-              fill="currentColor"
-              initial={{ opacity: 0, scale: 0.4 }}
-              animate={{ opacity: 0.18, scale: 1 }}
-              transition={{ duration: 1, delay: 0.7, ease: EASE }}
-              style={{ originX: '50%', originY: '50%' }}
+              transition={{ duration: 0.9, ease: EASE }}
             />
           </svg>
-          <div className="mt-7 flex overflow-hidden font-display text-3xl tracking-[0.35em] sm:text-4xl">
+          <div className="mt-6 flex overflow-hidden font-display text-3xl tracking-[0.35em] sm:text-4xl">
             {letters.map((l, i) => (
               <motion.span
                 key={i}
-                initial={{ y: '100%', opacity: 0 }}
-                animate={{ y: '0%', opacity: 1 }}
-                transition={{ duration: 0.9, delay: 0.35 + i * 0.045, ease: EASE }}
+                initial={{ y: '100%' }}
+                animate={{ y: '0%' }}
+                transition={{ duration: 0.7, delay: 0.15 + i * 0.03, ease: EASE }}
                 className="inline-block"
               >
                 {l === ' ' ? ' ' : l}
@@ -92,16 +91,8 @@ export function IntroLoader() {
             className="mt-5 h-px w-40 origin-center bg-gold/60"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1.2, delay: 0.8, ease: EASE }}
+            transition={{ duration: 0.9, delay: 0.4, ease: EASE }}
           />
-          <motion.p
-            className="mt-4 text-[0.62rem] uppercase tracking-[0.5em] text-gold-light/80"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-          >
-            Joias
-          </motion.p>
         </motion.div>
       )}
     </AnimatePresence>

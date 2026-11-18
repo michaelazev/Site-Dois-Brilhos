@@ -20,7 +20,7 @@ export function Seo({ title, description, image, type = 'website', jsonLd, noind
   const baseTitle = settings?.seo.title ?? 'Dois Brilhos Joias';
   const fullTitle = title ? `${title} · Dois Brilhos Joias` : baseTitle;
   const desc = description || settings?.seo.description || '';
-  const img = absolute(image || settings?.seo.og_image || '/og-image.svg');
+  const img = absolute(image || settings?.seo.og_image || '/og-image.jpg');
   const url = `${siteUrl}${pathname}`;
 
   return (

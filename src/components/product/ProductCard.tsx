@@ -21,7 +21,7 @@ export function ProductCard({ product, className, priority = false }: { product:
     <motion.article variants={staggerChild} className={cn('group relative', className)}>
       <Link to={`/produto/${product.slug}`} className="block" aria-label={product.name}>
         <div className="relative aspect-[4/5] overflow-hidden bg-pearl">
-          <SmartImage
+          <SmartImage small
             src={first?.url}
             alt={first?.alt ?? product.name}
             priority={priority}
@@ -29,7 +29,7 @@ export function ProductCard({ product, className, priority = false }: { product:
             imgClassName="transition-transform duration-[1.6s] ease-[var(--ease-lux)] group-hover:scale-[1.06]"
           />
           {second && (
-            <SmartImage
+            <SmartImage small
               src={second.url}
               alt=""
               className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-[var(--ease-lux)] group-hover:opacity-100 max-md:hidden"
@@ -43,7 +43,7 @@ export function ProductCard({ product, className, priority = false }: { product:
             {!soldOut && onSale && <Badge tone="gold">Oferta</Badge>}
           </div>
           {product.is_demo && (
-            <span className="absolute right-3 top-3 rounded-full bg-white/80 px-2 py-0.5 text-[0.55rem] uppercase tracking-[0.2em] text-mute backdrop-blur">
+            <span className="absolute right-3 top-3 rounded-full bg-white/80 px-2 py-0.5 text-[0.55rem] uppercase tracking-[0.2em] text-mute md:backdrop-blur">
               Exemplo
             </span>
           )}
@@ -77,7 +77,7 @@ function QuickAdd({ product, hasVariants, onAdd }: { product: Product; hasVarian
     return (
       <Link
         to={`/produto/${product.slug}`}
-        className="absolute -top-14 left-3 right-3 hidden translate-y-2 items-center justify-center bg-ivory/95 py-3 text-[0.62rem] font-medium uppercase tracking-[0.22em] text-emerald opacity-0 backdrop-blur transition-all duration-500 ease-[var(--ease-lux)] hover:bg-emerald hover:text-ivory group-hover:translate-y-0 group-hover:opacity-100 md:flex"
+        className="absolute -top-14 left-3 right-3 hidden translate-y-2 items-center justify-center bg-ivory/95 py-3 text-[0.62rem] font-medium uppercase tracking-[0.22em] text-emerald opacity-0 md:backdrop-blur transition-all duration-500 ease-[var(--ease-lux)] hover:bg-emerald hover:text-ivory group-hover:translate-y-0 group-hover:opacity-100 md:flex"
       >
         Escolher opção
       </Link>
@@ -87,14 +87,14 @@ function QuickAdd({ product, hasVariants, onAdd }: { product: Product; hasVarian
     <>
       <button
         onClick={onAdd}
-        className="absolute -top-14 left-3 right-3 hidden translate-y-2 items-center justify-center gap-2 bg-ivory/95 py-3 text-[0.62rem] font-medium uppercase tracking-[0.22em] text-emerald opacity-0 backdrop-blur transition-all duration-500 ease-[var(--ease-lux)] hover:bg-emerald hover:text-ivory focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 md:flex"
+        className="absolute -top-14 left-3 right-3 hidden translate-y-2 items-center justify-center gap-2 bg-ivory/95 py-3 text-[0.62rem] font-medium uppercase tracking-[0.22em] text-emerald opacity-0 md:backdrop-blur transition-all duration-500 ease-[var(--ease-lux)] hover:bg-emerald hover:text-ivory focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 md:flex"
         aria-label={`Adicionar ${product.name} à sacola`}
       >
         <Plus className="size-3.5" /> Adicionar à sacola
       </button>
       <button
         onClick={onAdd}
-        className="absolute -top-12 right-2.5 grid size-9 place-items-center rounded-full bg-ivory/95 text-emerald shadow-sm backdrop-blur active:scale-90 md:hidden"
+        className="absolute -top-12 right-2.5 grid size-9 place-items-center rounded-full bg-ivory/95 text-emerald shadow-sm md:backdrop-blur active:scale-90 md:hidden"
         aria-label={`Adicionar ${product.name} à sacola`}
       >
         <Plus className="size-4" strokeWidth={1.5} />

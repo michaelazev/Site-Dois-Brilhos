@@ -30,7 +30,7 @@ for (const c of data.collections) {
 lines.push('');
 data.products.forEach((p, i) => {
   lines.push(`insert into public.products (id, name, slug, short_description, description, material, category_id, collection_id, price, promo_price, stock, is_active, is_new, is_bestseller, is_featured, is_demo, sort_order) values (${[p.id, p.name, p.slug, p.short_description, p.description, p.material, p.category_id, p.collection_id, p.price, p.promo_price, p.stock, true, p.is_new, p.is_bestseller, p.is_featured, true, i].map(q).join(', ')}) on conflict (id) do nothing;`);
-  lines.push(`insert into public.product_images (product_id, url, alt, sort_order, is_primary) values (${q(p.id)}, ${q(`/demo/${p.slug}-1.svg`)}, ${q(`${p.name} (imagem de exemplo)`)}, 0, true), (${q(p.id)}, ${q(`/demo/${p.slug}-2.svg`)}, ${q(`${p.name} — detalhe (imagem de exemplo)`)}, 1, false);`);
+  lines.push(`insert into public.product_images (product_id, url, alt, sort_order, is_primary) values (${q(p.id)}, ${q(`/demo/${p.slug}-1.webp`)}, ${q(`${p.name} (imagem de exemplo)`)}, 0, true), (${q(p.id)}, ${q(`/demo/${p.slug}-2.webp`)}, ${q(`${p.name} — detalhe (imagem de exemplo)`)}, 1, false);`);
 });
 lines.push('');
 data.variants.forEach((v, i) => {

@@ -259,7 +259,7 @@ export default function CheckoutPage() {
                 {items.map((i) => (
                   <li key={i.key} className="flex gap-4 py-4">
                     <div className="relative">
-                      <SmartImage src={i.image} alt={i.name} className="h-20 w-16" />
+                      <SmartImage small src={i.image} alt={i.name} className="h-20 w-16" />
                       <span className="absolute -right-2 -top-2 grid size-5 place-items-center rounded-full bg-emerald text-[0.6rem] text-ivory">{i.quantity}</span>
                     </div>
                     <div className="flex-1 text-sm">

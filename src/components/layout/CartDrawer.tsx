@@ -35,7 +35,7 @@ export function CartDrawer() {
       {isOpen && (
         <div className="fixed inset-0 z-[80]" role="dialog" aria-modal="true" aria-label="Sacola de compras">
           <motion.div
-            className="absolute inset-0 bg-emerald-deep/40 backdrop-blur-[2px]"
+            className="absolute inset-0 bg-emerald-deep/40 md:backdrop-blur-[2px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -100,7 +100,7 @@ export function CartDrawer() {
                         className="flex gap-4 overflow-hidden py-5"
                       >
                         <Link to={`/produto/${item.slug}`} onClick={close} className="shrink-0">
-                          <SmartImage src={item.image} alt={item.name} className="h-28 w-[5.6rem]" />
+                          <SmartImage small src={item.image} alt={item.name} className="h-28 w-[5.6rem]" />
                         </Link>
                         <div className="flex min-w-0 flex-1 flex-col">
                           <div className="flex items-start justify-between gap-2">

@@ -287,7 +287,7 @@ export default function ProductPage() {
 
       {/* barra fixa no celular */}
       {!soldOut && (
-        <div className="fixed inset-x-0 bottom-0 z-40 flex items-center gap-3 border-t border-line bg-ivory/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-xl lg:hidden">
+        <div className="fixed inset-x-0 bottom-0 z-40 flex items-center gap-3 border-t border-line bg-ivory px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 md:backdrop-blur-xl lg:hidden">
           <div className="min-w-0 flex-1">
             <p className="truncate font-display text-lg leading-tight text-emerald">{product.name}</p>
             <p className="text-sm">{formatPrice(effectivePrice(product))}</p>

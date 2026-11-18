@@ -17,7 +17,7 @@ export function DemoBanner() {
   if (hidden || (!isDemoMode && !hasDemoProducts)) return null;
 
   return (
-    <div className="fixed bottom-3 left-3 z-40 flex max-w-[calc(100vw-1.5rem)] items-start gap-2.5 rounded-lg border border-line bg-ivory/95 py-2.5 pl-3 pr-2 text-xs text-mute shadow-lg backdrop-blur sm:max-w-sm" role="note">
+    <div className="mx-4 mb-4 flex md:fixed md:bottom-3 md:left-3 md:z-40 md:mx-0 md:mb-0 md:max-w-[calc(100vw-1.5rem)] items-start gap-2.5 rounded-lg border border-line bg-ivory/95 py-2.5 pl-3 pr-2 text-xs text-mute shadow-lg md:backdrop-blur sm:max-w-sm" role="note">
       <Info className="mt-0.5 size-3.5 shrink-0 text-gold" />
       <p className="leading-relaxed">
         {isDemoMode ? <strong className="font-medium text-ink">Modo demonstração. </strong> : null}

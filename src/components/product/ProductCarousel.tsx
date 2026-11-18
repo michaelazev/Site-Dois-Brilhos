@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import type { Product } from '@/types';
 import { ProductCard, ProductCardSkeleton } from './ProductCard';
-import { staggerParent } from '../motion/Reveal';
+import { staggerParent, VIEWPORT_MARGIN } from '../motion/Reveal';
 import { cn } from '@/lib/format';
 
 /**
@@ -14,25 +14,37 @@ export function ProductCarousel({ products, loading, label }: { products: Produc
   const ref = useRef<HTMLUListElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
-  const [progress, setProgress] = useState(0);
+  // Progresso como MotionValue: atualiza a barra direto na GPU, sem re-renderizar os cards.
+  const progress = useMotionValue(0);
+  const indicatorX = useTransform(progress, (p) => `${p * (78 / 22) * 100}%`);
+  const frame = useRef(0);
 
-  const update = useCallback(() => {
+  const measure = useCallback(() => {
+    frame.current = 0;
     const el = ref.current;
     if (!el) return;
     const max = el.scrollWidth - el.clientWidth;
+    // setState com o mesmo valor não re-renderiza: só muda quando chega/sai das pontas
     setCanPrev(el.scrollLeft > 4);
     setCanNext(el.scrollLeft < max - 4);
-    setProgress(max > 0 ? el.scrollLeft / max : 1);
-  }, []);
+    progress.set(max > 0 ? el.scrollLeft / max : 1);
+  }, [progress]);
+
+  // no máximo uma medição por quadro durante a rolagem
+  const update = useCallback(() => {
+    if (!frame.current) frame.current = requestAnimationFrame(measure);
+  }, [measure]);
+
+  useEffect(() => () => cancelAnimationFrame(frame.current), []);
 
   useEffect(() => {
-    update();
+    measure();
     const el = ref.current;
     if (!el) return;
     const ro = new ResizeObserver(update);
     ro.observe(el);
     return () => ro.disconnect();
-  }, [update, products.length]);
+  }, [measure, update, products.length]);
 
   const scroll = (dir: 1 | -1) => {
     const el = ref.current;
@@ -45,10 +57,11 @@ export function ProductCarousel({ products, loading, label }: { products: Produc
       <motion.ul
         ref={ref}
         onScroll={update}
+        style={{ WebkitOverflowScrolling: 'touch', overscrollBehaviorX: 'contain' }}
         className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-2 md:-mx-10 md:gap-6 md:scroll-px-10 md:px-10"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.05, margin: VIEWPORT_MARGIN }}
         variants={staggerParent}
       >
         {loading
@@ -66,7 +79,7 @@ export function ProductCarousel({ products, loading, label }: { products: Produc
 
       <div className="mt-8 flex items-center gap-6">
         <div className="relative h-px flex-1 bg-line" aria-hidden="true">
-          <motion.div className="absolute inset-y-0 left-0 bg-emerald" style={{ width: '22%' }} animate={{ left: `${progress * 78}%` }} transition={{ duration: 0.3 }} />
+          <motion.div className="absolute inset-y-0 left-0 w-[22%] bg-emerald" style={{ x: indicatorX }} />
         </div>
         <div className="flex gap-2">
           <ArrowButton onClick={() => scroll(-1)} disabled={!canPrev} label="Anterior">

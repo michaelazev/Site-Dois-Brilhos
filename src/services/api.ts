@@ -1,4 +1,4 @@
-import { isDemoMode, supabase } from '@/lib/supabase';
+import { isDemoMode } from '@/lib/supabase';
 import type { StoreApi } from './api.types';
 import { demoApi } from './demoApi';
 import { createSupabaseApi } from './supabaseApi';
@@ -8,5 +8,5 @@ import { createSupabaseApi } from './supabaseApi';
  * - Sem variáveis do Supabase → modo demonstração (localStorage).
  * - Com variáveis → Supabase (PostgreSQL + Auth + Storage).
  */
-export const api: StoreApi = isDemoMode ? demoApi : createSupabaseApi(supabase!);
+export const api: StoreApi = isDemoMode ? demoApi : createSupabaseApi();
 export { isDemoMode };

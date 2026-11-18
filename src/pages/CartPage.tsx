@@ -38,7 +38,7 @@ export default function CartPage() {
                     className="flex gap-5 overflow-hidden py-6"
                   >
                     <Link to={`/produto/${i.slug}`} className="shrink-0">
-                      <SmartImage src={i.image} alt={i.name} className="h-36 w-28 md:h-44 md:w-36" />
+                      <SmartImage small src={i.image} alt={i.name} className="h-36 w-28 md:h-44 md:w-36" />
                     </Link>
                     <div className="flex flex-1 flex-col">
                       <div className="flex justify-between gap-4">

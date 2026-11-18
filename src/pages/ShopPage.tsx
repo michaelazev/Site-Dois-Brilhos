@@ -102,7 +102,7 @@ export default function ShopPage({ mode }: { mode: Mode }) {
         </div>
       </section>
 
-      <div className="sticky top-0 z-30 border-b border-line bg-ivory/90 backdrop-blur-xl">
+      <div className="sticky top-0 z-30 border-b border-line bg-ivory/[0.97] md:bg-ivory/90 md:backdrop-blur-xl">
         <div className="container-lux flex items-center gap-4 py-3">
           <div className="no-scrollbar -mx-1 flex flex-1 gap-2 overflow-x-auto px-1">
             {chips.map((c) => (

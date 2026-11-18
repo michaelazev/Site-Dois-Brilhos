@@ -1,16 +1,16 @@
 {
   "_note": "DADOS DE DEMONSTRAÇÃO. Produtos, preços e imagens abaixo são EXEMPLOS (is_demo = true) e devem ser substituídos pelos reais no painel. As informações da marca vêm do Instagram @doisbrilhos.ofc.",
   "categories": [
-    { "id": "11111111-0000-4000-8000-000000000001", "name": "Colares", "slug": "colares", "description": "Correntes e pingentes para iluminar o colo.", "image_url": "/demo/categoria-colares.svg", "sort_order": 1, "is_featured": true, "is_active": true },
-    { "id": "11111111-0000-4000-8000-000000000002", "name": "Pulseiras", "slug": "pulseiras", "description": "Delicadas para o dia a dia ou para compor um mix.", "image_url": "/demo/categoria-pulseiras.svg", "sort_order": 2, "is_featured": true, "is_active": true },
-    { "id": "11111111-0000-4000-8000-000000000003", "name": "Brincos", "slug": "brincos", "description": "Pontos de luz, pérolas e argolas.", "image_url": "/demo/categoria-brincos.svg", "sort_order": 3, "is_featured": true, "is_active": true },
-    { "id": "11111111-0000-4000-8000-000000000004", "name": "Anéis", "slug": "aneis", "description": "Solitários e aparadores para todas as mãos.", "image_url": "/demo/categoria-aneis.svg", "sort_order": 4, "is_featured": true, "is_active": true },
-    { "id": "11111111-0000-4000-8000-000000000005", "name": "Conjuntos", "slug": "conjuntos", "description": "Colar e brincos que combinam entre si.", "image_url": "/demo/categoria-conjuntos.svg", "sort_order": 5, "is_featured": true, "is_active": true }
+    { "id": "11111111-0000-4000-8000-000000000001", "name": "Colares", "slug": "colares", "description": "Correntes e pingentes para iluminar o colo.", "image_url": "/demo/categoria-colares.webp", "sort_order": 1, "is_featured": true, "is_active": true },
+    { "id": "11111111-0000-4000-8000-000000000002", "name": "Pulseiras", "slug": "pulseiras", "description": "Delicadas para o dia a dia ou para compor um mix.", "image_url": "/demo/categoria-pulseiras.webp", "sort_order": 2, "is_featured": true, "is_active": true },
+    { "id": "11111111-0000-4000-8000-000000000003", "name": "Brincos", "slug": "brincos", "description": "Pontos de luz, pérolas e argolas.", "image_url": "/demo/categoria-brincos.webp", "sort_order": 3, "is_featured": true, "is_active": true },
+    { "id": "11111111-0000-4000-8000-000000000004", "name": "Anéis", "slug": "aneis", "description": "Solitários e aparadores para todas as mãos.", "image_url": "/demo/categoria-aneis.webp", "sort_order": 4, "is_featured": true, "is_active": true },
+    { "id": "11111111-0000-4000-8000-000000000005", "name": "Conjuntos", "slug": "conjuntos", "description": "Colar e brincos que combinam entre si.", "image_url": "/demo/categoria-conjuntos.webp", "sort_order": 5, "is_featured": true, "is_active": true }
   ],
   "collections": [
-    { "id": "22222222-0000-4000-8000-000000000001", "name": "Coração", "slug": "coracao", "description": "Coleção de exemplo — peças com o símbolo mais romântico das joias.", "image_url": "/demo/colecao-coracao.svg", "sort_order": 1, "is_featured": true, "is_active": true },
-    { "id": "22222222-0000-4000-8000-000000000002", "name": "Ponto de Luz", "slug": "ponto-de-luz", "description": "Coleção de exemplo — o brilho de uma única pedra.", "image_url": "/demo/colecao-ponto-de-luz.svg", "sort_order": 2, "is_featured": true, "is_active": true },
-    { "id": "22222222-0000-4000-8000-000000000003", "name": "Prata 925", "slug": "prata-925", "description": "Coleção de exemplo — peças em prata de lei.", "image_url": "/demo/colecao-prata-925.svg", "sort_order": 3, "is_featured": true, "is_active": true }
+    { "id": "22222222-0000-4000-8000-000000000001", "name": "Coração", "slug": "coracao", "description": "Coleção de exemplo — peças com o símbolo mais romântico das joias.", "image_url": "/demo/colecao-coracao.webp", "sort_order": 1, "is_featured": true, "is_active": true },
+    { "id": "22222222-0000-4000-8000-000000000002", "name": "Ponto de Luz", "slug": "ponto-de-luz", "description": "Coleção de exemplo — o brilho de uma única pedra.", "image_url": "/demo/colecao-ponto-de-luz.webp", "sort_order": 2, "is_featured": true, "is_active": true },
+    { "id": "22222222-0000-4000-8000-000000000003", "name": "Prata 925", "slug": "prata-925", "description": "Coleção de exemplo — peças em prata de lei.", "image_url": "/demo/colecao-prata-925.webp", "sort_order": 3, "is_featured": true, "is_active": true }
   ],
   "products": [
     { "id": "33333333-0000-4000-8000-000000000001", "name": "Colar Coração Cravejado", "slug": "colar-coracao-cravejado-prata", "material": "Prata 925", "category_id": "11111111-0000-4000-8000-000000000001", "collection_id": "22222222-0000-4000-8000-000000000001", "price": 129.9, "promo_price": 109.9, "stock": 6, "is_new": false, "is_bestseller": true, "is_featured": true, "short_description": "Pingente de coração vazado com zircônias.", "description": "Produto de exemplo. Colar com pingente de coração vazado contornado por zircônias e ponto de luz central.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
@@ -48,7 +48,7 @@
       "subtitle": "Joias lindas e acessíveis, escolhidas com carinho para iluminar todos os seus momentos.",
       "cta_label": "Conheça nossa coleção",
       "cta_link": "/loja",
-      "image_url": "/demo/hero.svg",
+      "image_url": "/demo/hero.webp",
       "image_alt": "Colares dourados e prateados pendurados sobre cetim branco (imagem de exemplo)"
     },
     "home": {
@@ -65,7 +65,7 @@
       "eyebrow": "Sobre nós",
       "title": "Dois Brilhos Joias",
       "text": "A Dois Brilhos é uma loja de joias de Recife — PE, com peças em Prata 925, Aço Inoxidável e Folheados Premium.\n\nNosso propósito é simples: joias lindas e acessíveis. O atendimento é feito de pessoa para pessoa, pelo WhatsApp, por Michael e Nicolly.",
-      "image_url": "/demo/sobre.svg",
+      "image_url": "/demo/sobre.webp",
       "highlights": [
         { "title": "Prata 925", "text": "Prata de lei para quem busca durabilidade." },
         { "title": "Aço Inoxidável", "text": "Resistência para o dia a dia." },
@@ -107,7 +107,7 @@
     "seo": {
       "title": "Dois Brilhos Joias — Prata 925, Aço e Folheados Premium",
       "description": "Joias lindas e acessíveis em Prata 925, Aço Inoxidável e Folheados Premium. Recife — PE. Peça pelo WhatsApp.",
-      "og_image": "/og-image.svg"
+      "og_image": "/og-image.jpg"
     }
   }
 }

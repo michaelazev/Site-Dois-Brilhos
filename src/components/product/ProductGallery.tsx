@@ -45,7 +45,7 @@ export function ProductGallery({ images, name }: { images: ProductImage[]; name:
               onClick={() => go(i)}
               className={cn('relative w-16 shrink-0 transition-opacity duration-300 md:w-full', i === index ? 'opacity-100' : 'opacity-50 hover:opacity-90')}
             >
-              <SmartImage src={img.url} alt="" className="aspect-[4/5]" />
+              <SmartImage small src={img.url} alt="" className="aspect-[4/5]" />
               {i === index && <motion.span layoutId="thumb-active" className="absolute inset-x-0 -bottom-1.5 h-px bg-emerald" />}
             </button>
           ))}
@@ -84,7 +84,7 @@ export function ProductGallery({ images, name }: { images: ProductImage[]; name:
           </motion.div>
         </AnimatePresence>
 
-        <span className="pointer-events-none absolute bottom-4 right-4 grid size-10 place-items-center rounded-full bg-ivory/85 text-emerald backdrop-blur" aria-hidden="true">
+        <span className="pointer-events-none absolute bottom-4 right-4 grid size-10 place-items-center rounded-full bg-ivory/85 text-emerald md:backdrop-blur" aria-hidden="true">
           <Expand className="size-4" strokeWidth={1.3} />
         </span>
         {list.length > 1 && (
@@ -135,7 +135,7 @@ function Lightbox({
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[120] flex items-center justify-center bg-emerald-deep/95 backdrop-blur"
+          className="fixed inset-0 z-[120] flex items-center justify-center bg-emerald-deep/95 md:backdrop-blur"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

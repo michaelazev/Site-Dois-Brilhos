@@ -322,3 +322,23 @@ function defsMetalSwap() {
 }
 
 console.log('Imagens de demonstração geradas em public/demo');
+
+// ---------- rasterização ----------
+// SVGs com filtros de desfoque são caríssimos para o celular desenhar
+// (testado: ~4,6 s de travamento no carregamento). Convertemos tudo para WebP.
+// Também geramos uma versão pequena (-sm) usada nos cards de produto.
+const sharp = (await import('sharp')).default;
+const { readdirSync, unlinkSync } = await import('node:fs');
+for (const file of readdirSync(out).filter((f) => f.endsWith('.svg'))) {
+  const src = join(out, file);
+  const base = file.replace(/\.svg$/, '');
+  const img = sharp(src, { density: 96 });
+  await img.clone().webp({ quality: 82 }).toFile(join(out, `${base}.webp`));
+  if (/-\d\.svg$/.test(file)) {
+    await img.clone().resize({ width: 480 }).webp({ quality: 78 }).toFile(join(out, `${base}-sm.webp`));
+  }
+  unlinkSync(src);
+}
+// Imagem de compartilhamento (WhatsApp/Facebook não aceitam SVG)
+await sharp(join(root, 'public', 'og-image.svg')).jpeg({ quality: 86 }).toFile(join(root, 'public', 'og-image.jpg'));
+console.log('Convertidas para WebP + og-image.jpg');

@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { useAuth } from '@/hooks/useAuth';
+import { AuthProvider, useAuth } from '@/hooks/useAuth';
 import { AdminFallback } from './components/AdminFallback';
 import { AdminLayout } from './components/AdminLayout';
 import LoginPage from './pages/LoginPage';
@@ -24,7 +24,7 @@ function RequireAdmin({ children }: { children: React.ReactNode }) {
 
 export default function AdminApp() {
   return (
-    <>
+    <AuthProvider>
       <Helmet>
         <title>Painel · Dois Brilhos</title>
         <meta name="robots" content="noindex,nofollow" />
@@ -56,6 +56,6 @@ export default function AdminApp() {
           }
         />
       </Routes>
-    </>
+    </AuthProvider>
   );
 }

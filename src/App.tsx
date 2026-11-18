@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <StoreLayout>
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<HomePage />} />
           <Route path="/loja" element={<ShopPage mode="all" />} />

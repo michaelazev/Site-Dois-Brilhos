@@ -35,7 +35,7 @@ export function Header() {
       <motion.header
         className={cn(
           'fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500',
-          scrolled || megaOpen ? 'bg-ivory/90 shadow-[0_1px_0_var(--color-line)] backdrop-blur-xl' : 'bg-transparent',
+          scrolled || megaOpen ? 'bg-ivory/[0.97] md:bg-ivory/90 shadow-[0_1px_0_var(--color-line)] md:backdrop-blur-xl' : 'bg-transparent',
         )}
         animate={{ y: hidden ? '-100%' : '0%' }}
         transition={{ duration: 0.5, ease: EASE }}
@@ -136,7 +136,7 @@ function MegaMenu({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.4, ease: EASE }}
-      className="absolute inset-x-0 top-full hidden border-t border-line bg-ivory/97 backdrop-blur-xl lg:block"
+      className="absolute inset-x-0 top-full hidden border-t border-line bg-ivory/97 md:backdrop-blur-xl lg:block"
     >
       <div className="container-lux grid grid-cols-12 gap-10 py-10">
         <div className="col-span-3">
@@ -194,7 +194,7 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[60] bg-ivory/97 backdrop-blur-xl"
+          className="fixed inset-0 z-[60] bg-ivory/97 md:backdrop-blur-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

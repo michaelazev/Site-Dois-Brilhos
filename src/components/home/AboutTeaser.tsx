@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { SiteSettings } from '@/types';
-import { Reveal } from '../motion/Reveal';
+import { Reveal, VIEWPORT_MARGIN } from '../motion/Reveal';
 import { Sparkle } from '../brand/Logo';
 import { SmartImage } from '../ui/SmartImage';
 
@@ -15,7 +15,7 @@ export function AboutTeaser({ about }: { about: SiteSettings['about'] }) {
           className="md:col-span-5"
           initial={{ opacity: 0, scale: 0.94 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05, margin: VIEWPORT_MARGIN }}
           transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="relative">

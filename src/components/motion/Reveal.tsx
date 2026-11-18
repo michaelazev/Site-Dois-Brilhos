@@ -1,7 +1,11 @@
 import { motion, type Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
+import { isTouchDevice } from '@/hooks/useLiteMotion';
 
 export const EASE = [0.22, 1, 0.36, 1] as const;
+
+/** Dispara as revelações ~15% antes de o elemento entrar na tela. */
+export const VIEWPORT_MARGIN = '0px 0px 15% 0px';
 
 const variants: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -16,8 +20,8 @@ export function Reveal({
   delay = 0,
   className,
   as = 'div',
-  y = 28,
-  amount = 0.25,
+  y = isTouchDevice ? 18 : 28,
+  amount = 0.1,
 }: {
   children: ReactNode;
   delay?: number;
@@ -32,9 +36,11 @@ export function Reveal({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount }}
+      // A margem inferior positiva dispara a animação um pouco ANTES de o elemento
+      // entrar na tela: ao rolar rápido no celular, nada fica em branco.
+      viewport={{ once: true, amount, margin: VIEWPORT_MARGIN }}
       variants={{ hidden: { opacity: 0, y }, visible: { opacity: 1, y: 0 } }}
-      transition={{ duration: 0.9, ease: EASE, delay }}
+      transition={{ duration: isTouchDevice ? 0.6 : 0.9, ease: EASE, delay }}
     >
       {children}
     </Comp>

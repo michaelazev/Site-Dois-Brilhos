@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { PageTransition } from '@/components/motion/PageTransition';
 import { Seo } from '@/components/Seo';
-import { MaskText, Reveal, staggerChild, staggerParent } from '@/components/motion/Reveal';
+import { MaskText, Reveal, staggerChild, staggerParent, VIEWPORT_MARGIN } from '@/components/motion/Reveal';
 import { SmartImage } from '@/components/ui/SmartImage';
 import { Sparkle } from '@/components/brand/Logo';
 import { useSettings } from '@/hooks/queries';
@@ -30,9 +30,9 @@ export default function AboutPage() {
           </div>
           <motion.div
             className="md:col-span-5 md:col-start-8"
-            initial={{ clipPath: 'inset(100% 0 0 0)' }}
-            animate={{ clipPath: 'inset(0% 0 0 0)' }}
-            transition={{ duration: 1.4, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           >
             <SmartImage src={s.about.image_url} alt="Dois Brilhos" className="aspect-[5/6] rounded-t-[999px]" priority />
           </motion.div>
@@ -40,7 +40,7 @@ export default function AboutPage() {
       </section>
 
       <section className="container-lux py-20 md:py-28">
-        <motion.ul className="grid gap-10 md:grid-cols-3" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={staggerParent}>
+        <motion.ul className="grid gap-10 md:grid-cols-3" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05, margin: VIEWPORT_MARGIN }} variants={staggerParent}>
           {s.about.highlights.map((h) => (
             <motion.li key={h.title} variants={staggerChild} className="border-t border-gold/40 pt-6">
               <Sparkle className="mb-4 size-5 text-gold" />
@@ -58,7 +58,7 @@ export default function AboutPage() {
               <p className="eyebrow mb-4 !text-gold-light">Cuidados</p>
               <h2 className="text-5xl leading-none">{s.about.care_title}</h2>
             </Reveal>
-            <motion.ol className="space-y-6 md:col-span-7 md:col-start-6" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={staggerParent}>
+            <motion.ol className="space-y-6 md:col-span-7 md:col-start-6" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05, margin: VIEWPORT_MARGIN }} variants={staggerParent}>
               {s.about.care_tips.map((t, i) => (
                 <motion.li key={t} variants={staggerChild} className="flex gap-6 border-b border-ivory/10 pb-6">
                   <span className="font-display text-3xl text-gold-light">{String(i + 1).padStart(2, '0')}</span>
