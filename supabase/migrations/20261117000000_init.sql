@@ -34,7 +34,7 @@ grant execute on function public.is_admin() to anon, authenticated;
 -- Utilitário: updated_at automático
 -- ---------------------------------------------------------------------
 create or replace function public.set_updated_at()
-returns trigger language plpgsql as $$
+returns trigger language plpgsql set search_path = public as $$
 begin
   new.updated_at = now();
   return new;
@@ -351,9 +351,13 @@ on conflict (id) do update set public = excluded.public,
   file_size_limit = excluded.file_size_limit,
   allowed_mime_types = excluded.allowed_mime_types;
 
+-- Bucket público: as imagens são servidas pela URL pública sem precisar de
+-- política SELECT. Não criamos SELECT para anon, assim ninguém consegue LISTAR
+-- os arquivos do bucket. Administradores podem listar (necessário p/ gerenciar).
 drop policy if exists "public read product-images" on storage.objects;
-create policy "public read product-images" on storage.objects for select
-  using (bucket_id = 'product-images');
+drop policy if exists "admin read product-images" on storage.objects;
+create policy "admin read product-images" on storage.objects for select to authenticated
+  using (bucket_id = 'product-images' and public.is_admin());
 
 drop policy if exists "admin insert product-images" on storage.objects;
 create policy "admin insert product-images" on storage.objects for insert to authenticated
