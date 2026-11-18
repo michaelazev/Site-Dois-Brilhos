@@ -28,6 +28,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
     { to: '/mais-vendidos', label: 'Mais vendidos' },
     ...categories.map((c) => ({ to: `/categoria/${c.slug}`, label: c.name })),
     { to: '/sobre', label: 'Sobre nós' },
+    { to: '/cuidados', label: 'Cuidados' },
   ];
 
   return (

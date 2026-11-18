@@ -14,6 +14,7 @@ const TABS: Array<{ key: SettingsKey; label: string }> = [
   { key: 'hero', label: 'Banner principal' },
   { key: 'home', label: 'Página inicial' },
   { key: 'about', label: 'Institucional' },
+  { key: 'care', label: 'Cuidados' },
   { key: 'attendants', label: 'Atendentes (WhatsApp)' },
   { key: 'contact', label: 'Contato' },
   { key: 'social', label: 'Redes sociais' },
@@ -88,6 +89,7 @@ export default function ContentPage() {
           {tab === 'hero' && <HeroEditor value={draft.hero} onChange={(p) => update('hero', p)} />}
           {tab === 'home' && <HomeEditor value={draft.home} onChange={(p) => update('home', p)} />}
           {tab === 'about' && <AboutEditor value={draft.about} onChange={(p) => update('about', p)} />}
+          {tab === 'care' && <CareEditor value={draft.care} onChange={(p) => update('care', p)} />}
           {tab === 'attendants' && <AttendantsEditor value={draft.attendants} onChange={(v) => update('attendants', v)} />}
           {tab === 'contact' && (
             <Card title="Contato">
@@ -236,9 +238,48 @@ function AboutEditor({ value, onChange }: { value: SiteSettings['about']; onChan
           ))}
         </div>
       </Card>
-      <Card title="Cuidados com as joias">
-        <Field label="Título" className="mb-4"><input className="admin-input" value={value.care_title} onChange={(e) => onChange({ care_title: e.target.value })} /></Field>
-        <StringListEditor value={value.care_tips} onChange={(care_tips) => onChange({ care_tips })} placeholder="Nova dica" />
+    </div>
+  );
+}
+
+function CareEditor({ value, onChange }: { value: SiteSettings['care']; onChange: (p: Partial<SiteSettings['care']>) => void }) {
+  return (
+    <div className="space-y-6">
+      <Card title="Página Cuidados">
+        <div className="grid gap-6 md:grid-cols-[1fr_14rem]">
+          <div className="space-y-4">
+            <Field label="Linha superior"><input className="admin-input" value={value.eyebrow} onChange={(e) => onChange({ eyebrow: e.target.value })} /></Field>
+            <Field label="Título"><input className="admin-input" value={value.title} onChange={(e) => onChange({ title: e.target.value })} /></Field>
+            <Field label="Introdução"><textarea className="admin-input min-h-24" value={value.intro} onChange={(e) => onChange({ intro: e.target.value })} /></Field>
+          </div>
+          <Field label="Imagem">
+            <SingleImageUploader value={value.image_url} onChange={(url) => onChange({ image_url: url })} folder="site" aspect="aspect-[5/6]" />
+          </Field>
+        </div>
+      </Card>
+      <Card
+        title="Cuidados por material"
+        actions={<button type="button" className="admin-btn admin-btn-ghost" onClick={() => onChange({ materials: [...value.materials, { title: '', text: '' }] })}><Plus className="size-4" /> Adicionar</button>}
+      >
+        <div className="space-y-3">
+          {value.materials.map((m, i) => (
+            <div key={i} className="grid gap-2 sm:grid-cols-[12rem_1fr_2.5rem]">
+              <input className="admin-input" placeholder="Material" value={m.title} onChange={(e) => onChange({ materials: value.materials.map((x, j) => (j === i ? { ...x, title: e.target.value } : x)) })} />
+              <textarea className="admin-input min-h-20" placeholder="Como cuidar" value={m.text} onChange={(e) => onChange({ materials: value.materials.map((x, j) => (j === i ? { ...x, text: e.target.value } : x)) })} />
+              <button type="button" className="grid place-items-center rounded-md text-mute hover:bg-rose-50 hover:text-rose-700" onClick={() => onChange({ materials: value.materials.filter((_, j) => j !== i) })} aria-label="Remover">
+                <Trash2 className="size-4" />
+              </button>
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-xs text-mute">Na página de cada produto, aparece primeiro o cuidado do material correspondente (ex.: “Prata 925”).</p>
+      </Card>
+      <Card title="Dicas do dia a dia">
+        <Field label="Título da seção" className="mb-4"><input className="admin-input" value={value.tips_title} onChange={(e) => onChange({ tips_title: e.target.value })} /></Field>
+        <StringListEditor value={value.tips} onChange={(tips) => onChange({ tips })} placeholder="Nova dica" />
+      </Card>
+      <Card title="Mensagem final">
+        <Field label="Texto acima dos botões de WhatsApp"><input className="admin-input" value={value.note} onChange={(e) => onChange({ note: e.target.value })} /></Field>
       </Card>
     </div>
   );

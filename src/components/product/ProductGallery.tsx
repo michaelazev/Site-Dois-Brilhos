@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, Expand, X } from 'lucide-react';
 import type { ProductImage } from '@/types';
 import { cn } from '@/lib/format';
 import { SmartImage } from '../ui/SmartImage';
+import { smallImageUrl } from '@/lib/image';
 import { EASE } from '../motion/Reveal';
 
 /** Galeria com zoom ao passar o mouse, swipe no celular e visualização ampliada (lightbox). */
@@ -75,6 +76,7 @@ export function ProductGallery({ images, name }: { images: ProductImage[]; name:
           >
             <SmartImage
               src={current.url}
+              placeholderSrc={smallImageUrl(current.url)}
               alt={current.alt ?? name}
               priority={index === 0}
               className="h-full w-full"

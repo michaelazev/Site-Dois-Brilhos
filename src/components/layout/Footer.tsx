@@ -75,7 +75,7 @@ export function Footer() {
       <div className="border-t border-ivory/10">
         <div className="container-lux flex flex-col items-center justify-between gap-3 py-6 text-[0.68rem] tracking-wide text-ivory/45 sm:flex-row">
           <p>© {year} Dois Brilhos Joias. Todos os direitos reservados.</p>
-          <Link to="/sobre" className="link-underline">Cuidados com suas joias</Link>
+          <Link to="/cuidados" className="link-underline">Cuidados com suas joias</Link>
         </div>
       </div>
     </footer>

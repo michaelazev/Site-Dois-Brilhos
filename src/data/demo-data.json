@@ -1,45 +1,392 @@
 {
   "_note": "DADOS DE DEMONSTRAÇÃO. Produtos, preços e imagens abaixo são EXEMPLOS (is_demo = true) e devem ser substituídos pelos reais no painel. As informações da marca vêm do Instagram @doisbrilhos.ofc.",
   "categories": [
-    { "id": "11111111-0000-4000-8000-000000000001", "name": "Colares", "slug": "colares", "description": "Correntes e pingentes para iluminar o colo.", "image_url": "/demo/categoria-colares.webp", "sort_order": 1, "is_featured": true, "is_active": true },
-    { "id": "11111111-0000-4000-8000-000000000002", "name": "Pulseiras", "slug": "pulseiras", "description": "Delicadas para o dia a dia ou para compor um mix.", "image_url": "/demo/categoria-pulseiras.webp", "sort_order": 2, "is_featured": true, "is_active": true },
-    { "id": "11111111-0000-4000-8000-000000000003", "name": "Brincos", "slug": "brincos", "description": "Pontos de luz, pérolas e argolas.", "image_url": "/demo/categoria-brincos.webp", "sort_order": 3, "is_featured": true, "is_active": true },
-    { "id": "11111111-0000-4000-8000-000000000004", "name": "Anéis", "slug": "aneis", "description": "Solitários e aparadores para todas as mãos.", "image_url": "/demo/categoria-aneis.webp", "sort_order": 4, "is_featured": true, "is_active": true },
-    { "id": "11111111-0000-4000-8000-000000000005", "name": "Conjuntos", "slug": "conjuntos", "description": "Colar e brincos que combinam entre si.", "image_url": "/demo/categoria-conjuntos.webp", "sort_order": 5, "is_featured": true, "is_active": true }
+    {
+      "id": "11111111-0000-4000-8000-000000000001",
+      "name": "Colares",
+      "slug": "colares",
+      "description": "Correntes e pingentes para iluminar o colo.",
+      "image_url": "/demo/categoria-colares.webp",
+      "sort_order": 1,
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "id": "11111111-0000-4000-8000-000000000002",
+      "name": "Pulseiras",
+      "slug": "pulseiras",
+      "description": "Delicadas para o dia a dia ou para compor um mix.",
+      "image_url": "/demo/categoria-pulseiras.webp",
+      "sort_order": 2,
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "id": "11111111-0000-4000-8000-000000000003",
+      "name": "Brincos",
+      "slug": "brincos",
+      "description": "Pontos de luz, pérolas e argolas.",
+      "image_url": "/demo/categoria-brincos.webp",
+      "sort_order": 3,
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "id": "11111111-0000-4000-8000-000000000004",
+      "name": "Anéis",
+      "slug": "aneis",
+      "description": "Solitários e aparadores para todas as mãos.",
+      "image_url": "/demo/categoria-aneis.webp",
+      "sort_order": 4,
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "id": "11111111-0000-4000-8000-000000000005",
+      "name": "Conjuntos",
+      "slug": "conjuntos",
+      "description": "Colar e brincos que combinam entre si.",
+      "image_url": "/demo/categoria-conjuntos.webp",
+      "sort_order": 5,
+      "is_featured": true,
+      "is_active": true
+    }
   ],
   "collections": [
-    { "id": "22222222-0000-4000-8000-000000000001", "name": "Coração", "slug": "coracao", "description": "Coleção de exemplo — peças com o símbolo mais romântico das joias.", "image_url": "/demo/colecao-coracao.webp", "sort_order": 1, "is_featured": true, "is_active": true },
-    { "id": "22222222-0000-4000-8000-000000000002", "name": "Ponto de Luz", "slug": "ponto-de-luz", "description": "Coleção de exemplo — o brilho de uma única pedra.", "image_url": "/demo/colecao-ponto-de-luz.webp", "sort_order": 2, "is_featured": true, "is_active": true },
-    { "id": "22222222-0000-4000-8000-000000000003", "name": "Prata 925", "slug": "prata-925", "description": "Coleção de exemplo — peças em prata de lei.", "image_url": "/demo/colecao-prata-925.webp", "sort_order": 3, "is_featured": true, "is_active": true }
+    {
+      "id": "22222222-0000-4000-8000-000000000001",
+      "name": "Coração",
+      "slug": "coracao",
+      "description": "Coleção de exemplo — peças com o símbolo mais romântico das joias.",
+      "image_url": "/demo/colecao-coracao.webp",
+      "sort_order": 1,
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "id": "22222222-0000-4000-8000-000000000002",
+      "name": "Ponto de Luz",
+      "slug": "ponto-de-luz",
+      "description": "Coleção de exemplo — o brilho de uma única pedra.",
+      "image_url": "/demo/colecao-ponto-de-luz.webp",
+      "sort_order": 2,
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "id": "22222222-0000-4000-8000-000000000003",
+      "name": "Prata 925",
+      "slug": "prata-925",
+      "description": "Coleção de exemplo — peças em prata de lei.",
+      "image_url": "/demo/colecao-prata-925.webp",
+      "sort_order": 3,
+      "is_featured": true,
+      "is_active": true
+    }
   ],
   "products": [
-    { "id": "33333333-0000-4000-8000-000000000001", "name": "Colar Coração Cravejado", "slug": "colar-coracao-cravejado-prata", "material": "Prata 925", "category_id": "11111111-0000-4000-8000-000000000001", "collection_id": "22222222-0000-4000-8000-000000000001", "price": 129.9, "promo_price": 109.9, "stock": 6, "is_new": false, "is_bestseller": true, "is_featured": true, "short_description": "Pingente de coração vazado com zircônias.", "description": "Produto de exemplo. Colar com pingente de coração vazado contornado por zircônias e ponto de luz central.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000002", "name": "Colar Coração Cravejado Dourado", "slug": "colar-coracao-cravejado-dourado", "material": "Folheado a Ouro", "category_id": "11111111-0000-4000-8000-000000000001", "collection_id": "22222222-0000-4000-8000-000000000001", "price": 89.9, "promo_price": null, "stock": 8, "is_new": true, "is_bestseller": true, "is_featured": true, "short_description": "Versão dourada do coração cravejado.", "description": "Produto de exemplo. Colar com pingente de coração vazado contornado por zircônias.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000003", "name": "Colar Trevo Preto", "slug": "colar-trevo-preto", "material": "Folheado a Ouro", "category_id": "11111111-0000-4000-8000-000000000001", "collection_id": null, "price": 99.9, "promo_price": null, "stock": 4, "is_new": true, "is_bestseller": true, "is_featured": true, "short_description": "Corrente com três trevos em preto.", "description": "Produto de exemplo. Corrente com estações de trevo de quatro folhas em preto.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000004", "name": "Colar Ponto de Luz", "slug": "colar-ponto-de-luz", "material": "Prata 925", "category_id": "11111111-0000-4000-8000-000000000001", "collection_id": "22222222-0000-4000-8000-000000000002", "price": 79.9, "promo_price": null, "stock": 10, "is_new": false, "is_bestseller": false, "is_featured": false, "short_description": "Uma pedra, todo o brilho.", "description": "Produto de exemplo. Corrente fina com pingente de ponto de luz.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000005", "name": "Brinco Pérola Clássico", "slug": "brinco-perola-classico", "material": "Folheado a Ouro", "category_id": "11111111-0000-4000-8000-000000000003", "collection_id": null, "price": 39.9, "promo_price": null, "stock": 15, "is_new": false, "is_bestseller": true, "is_featured": true, "short_description": "Pérola sintética, atemporal.", "description": "Produto de exemplo. Brinco de pressão com pérola.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000006", "name": "Brinco Bola Dourada", "slug": "brinco-bola-dourada", "material": "Folheado a Ouro", "category_id": "11111111-0000-4000-8000-000000000003", "collection_id": null, "price": 34.9, "promo_price": 29.9, "stock": 12, "is_new": false, "is_bestseller": true, "is_featured": false, "short_description": "O básico que combina com tudo.", "description": "Produto de exemplo. Brinco bola polida.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000007", "name": "Brinco Ponto de Luz Verde", "slug": "brinco-ponto-de-luz-verde", "material": "Folheado a Ouro", "category_id": "11111111-0000-4000-8000-000000000003", "collection_id": "22222222-0000-4000-8000-000000000002", "price": 44.9, "promo_price": null, "stock": 7, "is_new": true, "is_bestseller": false, "is_featured": true, "short_description": "Zircônia verde em garra.", "description": "Produto de exemplo. Brinco ponto de luz com zircônia verde.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000008", "name": "Brinco Ponto de Luz", "slug": "brinco-ponto-de-luz-zirconia", "material": "Prata 925", "category_id": "11111111-0000-4000-8000-000000000003", "collection_id": "22222222-0000-4000-8000-000000000003", "price": 59.9, "promo_price": null, "stock": 0, "is_new": false, "is_bestseller": false, "is_featured": false, "short_description": "Zircônia cristal em prata de lei.", "description": "Produto de exemplo (sem estoque, para demonstrar o aviso de indisponibilidade).\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000009", "name": "Argola Cravejada", "slug": "argola-cravejada-dourada", "material": "Folheado a Ouro", "category_id": "11111111-0000-4000-8000-000000000003", "collection_id": null, "price": 54.9, "promo_price": null, "stock": 9, "is_new": true, "is_bestseller": false, "is_featured": false, "short_description": "Argola média com zircônias.", "description": "Produto de exemplo. Argola com fileira de zircônias.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000010", "name": "Pulseira Elos com Coração", "slug": "pulseira-elos-prata", "material": "Aço Inoxidável", "category_id": "11111111-0000-4000-8000-000000000002", "collection_id": "22222222-0000-4000-8000-000000000001", "price": 49.9, "promo_price": null, "stock": 11, "is_new": false, "is_bestseller": true, "is_featured": false, "short_description": "Corrente de elos com pingente.", "description": "Produto de exemplo. Pulseira de elos com pingente de coração.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000011", "name": "Pulseira Riviera", "slug": "pulseira-riviera-dourada", "material": "Folheado a Ouro", "category_id": "11111111-0000-4000-8000-000000000002", "collection_id": null, "price": 119.9, "promo_price": 99.9, "stock": 3, "is_new": true, "is_bestseller": false, "is_featured": true, "short_description": "Volta completa de zircônias.", "description": "Produto de exemplo. Pulseira riviera cravejada.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000012", "name": "Anel Solitário", "slug": "anel-solitario-prata", "material": "Prata 925", "category_id": "11111111-0000-4000-8000-000000000004", "collection_id": "22222222-0000-4000-8000-000000000003", "price": 89.9, "promo_price": null, "stock": 9, "is_new": false, "is_bestseller": true, "is_featured": false, "short_description": "Solitário em garras.", "description": "Produto de exemplo. Anel solitário com zircônia em garras.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000013", "name": "Anel Aparador Cravejado", "slug": "anel-aparador-dourado", "material": "Folheado a Ouro", "category_id": "11111111-0000-4000-8000-000000000004", "collection_id": null, "price": 49.9, "promo_price": null, "stock": 6, "is_new": false, "is_bestseller": false, "is_featured": false, "short_description": "Meia aliança delicada.", "description": "Produto de exemplo. Anel aparador com zircônias.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000014", "name": "Conjunto Coração", "slug": "conjunto-coracao-dourado", "material": "Folheado a Ouro", "category_id": "11111111-0000-4000-8000-000000000005", "collection_id": "22222222-0000-4000-8000-000000000001", "price": 119.9, "promo_price": null, "stock": 5, "is_new": true, "is_bestseller": true, "is_featured": true, "short_description": "Colar e brincos combinando.", "description": "Produto de exemplo. Conjunto com colar de coração e brincos ponto de luz.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." },
-    { "id": "33333333-0000-4000-8000-000000000015", "name": "Conjunto Ponto de Luz Verde", "slug": "conjunto-ponto-de-luz-verde", "material": "Aço Inoxidável", "category_id": "11111111-0000-4000-8000-000000000005", "collection_id": "22222222-0000-4000-8000-000000000002", "price": 89.9, "promo_price": null, "stock": 4, "is_new": false, "is_bestseller": false, "is_featured": false, "short_description": "Colar e brincos com pedra verde.", "description": "Produto de exemplo. Conjunto de colar e brincos ponto de luz verde.\n\nSubstitua este texto pela descrição real da peça no painel administrativo." }
+    {
+      "id": "33333333-0000-4000-8000-000000000001",
+      "name": "Colar Coração Cravejado",
+      "slug": "colar-coracao-cravejado-prata",
+      "material": "Prata 925",
+      "category_id": "11111111-0000-4000-8000-000000000001",
+      "collection_id": "22222222-0000-4000-8000-000000000001",
+      "price": 129.9,
+      "promo_price": 109.9,
+      "stock": 6,
+      "is_new": false,
+      "is_bestseller": true,
+      "is_featured": true,
+      "short_description": "Pingente de coração vazado com zircônias.",
+      "description": "Produto de exemplo. Colar com pingente de coração vazado contornado por zircônias e ponto de luz central.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000002",
+      "name": "Colar Coração Cravejado Dourado",
+      "slug": "colar-coracao-cravejado-dourado",
+      "material": "Folheado a Ouro",
+      "category_id": "11111111-0000-4000-8000-000000000001",
+      "collection_id": "22222222-0000-4000-8000-000000000001",
+      "price": 89.9,
+      "promo_price": null,
+      "stock": 8,
+      "is_new": true,
+      "is_bestseller": true,
+      "is_featured": true,
+      "short_description": "Versão dourada do coração cravejado.",
+      "description": "Produto de exemplo. Colar com pingente de coração vazado contornado por zircônias.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000003",
+      "name": "Colar Trevo Preto",
+      "slug": "colar-trevo-preto",
+      "material": "Folheado a Ouro",
+      "category_id": "11111111-0000-4000-8000-000000000001",
+      "collection_id": null,
+      "price": 99.9,
+      "promo_price": null,
+      "stock": 4,
+      "is_new": true,
+      "is_bestseller": true,
+      "is_featured": true,
+      "short_description": "Corrente com três trevos em preto.",
+      "description": "Produto de exemplo. Corrente com estações de trevo de quatro folhas em preto.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000004",
+      "name": "Colar Ponto de Luz",
+      "slug": "colar-ponto-de-luz",
+      "material": "Prata 925",
+      "category_id": "11111111-0000-4000-8000-000000000001",
+      "collection_id": "22222222-0000-4000-8000-000000000002",
+      "price": 79.9,
+      "promo_price": null,
+      "stock": 10,
+      "is_new": false,
+      "is_bestseller": false,
+      "is_featured": false,
+      "short_description": "Uma pedra, todo o brilho.",
+      "description": "Produto de exemplo. Corrente fina com pingente de ponto de luz.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000005",
+      "name": "Brinco Pérola Clássico",
+      "slug": "brinco-perola-classico",
+      "material": "Folheado a Ouro",
+      "category_id": "11111111-0000-4000-8000-000000000003",
+      "collection_id": null,
+      "price": 39.9,
+      "promo_price": null,
+      "stock": 15,
+      "is_new": false,
+      "is_bestseller": true,
+      "is_featured": true,
+      "short_description": "Pérola sintética, atemporal.",
+      "description": "Produto de exemplo. Brinco de pressão com pérola.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000006",
+      "name": "Brinco Bola Dourada",
+      "slug": "brinco-bola-dourada",
+      "material": "Folheado a Ouro",
+      "category_id": "11111111-0000-4000-8000-000000000003",
+      "collection_id": null,
+      "price": 34.9,
+      "promo_price": 29.9,
+      "stock": 12,
+      "is_new": false,
+      "is_bestseller": true,
+      "is_featured": false,
+      "short_description": "O básico que combina com tudo.",
+      "description": "Produto de exemplo. Brinco bola polida.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000007",
+      "name": "Brinco Ponto de Luz Verde",
+      "slug": "brinco-ponto-de-luz-verde",
+      "material": "Folheado a Ouro",
+      "category_id": "11111111-0000-4000-8000-000000000003",
+      "collection_id": "22222222-0000-4000-8000-000000000002",
+      "price": 44.9,
+      "promo_price": null,
+      "stock": 7,
+      "is_new": true,
+      "is_bestseller": false,
+      "is_featured": true,
+      "short_description": "Zircônia verde em garra.",
+      "description": "Produto de exemplo. Brinco ponto de luz com zircônia verde.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000008",
+      "name": "Brinco Ponto de Luz",
+      "slug": "brinco-ponto-de-luz-zirconia",
+      "material": "Prata 925",
+      "category_id": "11111111-0000-4000-8000-000000000003",
+      "collection_id": "22222222-0000-4000-8000-000000000003",
+      "price": 59.9,
+      "promo_price": null,
+      "stock": 0,
+      "is_new": false,
+      "is_bestseller": false,
+      "is_featured": false,
+      "short_description": "Zircônia cristal em prata de lei.",
+      "description": "Produto de exemplo (sem estoque, para demonstrar o aviso de indisponibilidade).\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000009",
+      "name": "Argola Cravejada",
+      "slug": "argola-cravejada-dourada",
+      "material": "Folheado a Ouro",
+      "category_id": "11111111-0000-4000-8000-000000000003",
+      "collection_id": null,
+      "price": 54.9,
+      "promo_price": null,
+      "stock": 9,
+      "is_new": true,
+      "is_bestseller": false,
+      "is_featured": false,
+      "short_description": "Argola média com zircônias.",
+      "description": "Produto de exemplo. Argola com fileira de zircônias.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000010",
+      "name": "Pulseira Elos com Coração",
+      "slug": "pulseira-elos-prata",
+      "material": "Aço Inoxidável",
+      "category_id": "11111111-0000-4000-8000-000000000002",
+      "collection_id": "22222222-0000-4000-8000-000000000001",
+      "price": 49.9,
+      "promo_price": null,
+      "stock": 11,
+      "is_new": false,
+      "is_bestseller": true,
+      "is_featured": false,
+      "short_description": "Corrente de elos com pingente.",
+      "description": "Produto de exemplo. Pulseira de elos com pingente de coração.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000011",
+      "name": "Pulseira Riviera",
+      "slug": "pulseira-riviera-dourada",
+      "material": "Folheado a Ouro",
+      "category_id": "11111111-0000-4000-8000-000000000002",
+      "collection_id": null,
+      "price": 119.9,
+      "promo_price": 99.9,
+      "stock": 3,
+      "is_new": true,
+      "is_bestseller": false,
+      "is_featured": true,
+      "short_description": "Volta completa de zircônias.",
+      "description": "Produto de exemplo. Pulseira riviera cravejada.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000012",
+      "name": "Anel Solitário",
+      "slug": "anel-solitario-prata",
+      "material": "Prata 925",
+      "category_id": "11111111-0000-4000-8000-000000000004",
+      "collection_id": "22222222-0000-4000-8000-000000000003",
+      "price": 89.9,
+      "promo_price": null,
+      "stock": 9,
+      "is_new": false,
+      "is_bestseller": true,
+      "is_featured": false,
+      "short_description": "Solitário em garras.",
+      "description": "Produto de exemplo. Anel solitário com zircônia em garras.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000013",
+      "name": "Anel Aparador Cravejado",
+      "slug": "anel-aparador-dourado",
+      "material": "Folheado a Ouro",
+      "category_id": "11111111-0000-4000-8000-000000000004",
+      "collection_id": null,
+      "price": 49.9,
+      "promo_price": null,
+      "stock": 6,
+      "is_new": false,
+      "is_bestseller": false,
+      "is_featured": false,
+      "short_description": "Meia aliança delicada.",
+      "description": "Produto de exemplo. Anel aparador com zircônias.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000014",
+      "name": "Conjunto Coração",
+      "slug": "conjunto-coracao-dourado",
+      "material": "Folheado a Ouro",
+      "category_id": "11111111-0000-4000-8000-000000000005",
+      "collection_id": "22222222-0000-4000-8000-000000000001",
+      "price": 119.9,
+      "promo_price": null,
+      "stock": 5,
+      "is_new": true,
+      "is_bestseller": true,
+      "is_featured": true,
+      "short_description": "Colar e brincos combinando.",
+      "description": "Produto de exemplo. Conjunto com colar de coração e brincos ponto de luz.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    },
+    {
+      "id": "33333333-0000-4000-8000-000000000015",
+      "name": "Conjunto Ponto de Luz Verde",
+      "slug": "conjunto-ponto-de-luz-verde",
+      "material": "Aço Inoxidável",
+      "category_id": "11111111-0000-4000-8000-000000000005",
+      "collection_id": "22222222-0000-4000-8000-000000000002",
+      "price": 89.9,
+      "promo_price": null,
+      "stock": 4,
+      "is_new": false,
+      "is_bestseller": false,
+      "is_featured": false,
+      "short_description": "Colar e brincos com pedra verde.",
+      "description": "Produto de exemplo. Conjunto de colar e brincos ponto de luz verde.\n\nSubstitua este texto pela descrição real da peça no painel administrativo."
+    }
   ],
   "variants": [
-    { "product_slug": "colar-coracao-cravejado-prata", "label": "Comprimento", "value": "40 cm", "stock": 3 },
-    { "product_slug": "colar-coracao-cravejado-prata", "label": "Comprimento", "value": "45 cm", "stock": 3 },
-    { "product_slug": "colar-ponto-de-luz", "label": "Comprimento", "value": "40 cm", "stock": 5 },
-    { "product_slug": "colar-ponto-de-luz", "label": "Comprimento", "value": "45 cm", "stock": 5 },
-    { "product_slug": "anel-solitario-prata", "label": "Aro", "value": "14", "stock": 3 },
-    { "product_slug": "anel-solitario-prata", "label": "Aro", "value": "16", "stock": 4 },
-    { "product_slug": "anel-solitario-prata", "label": "Aro", "value": "18", "stock": 2 },
-    { "product_slug": "anel-aparador-dourado", "label": "Aro", "value": "14", "stock": 2 },
-    { "product_slug": "anel-aparador-dourado", "label": "Aro", "value": "16", "stock": 0 },
-    { "product_slug": "anel-aparador-dourado", "label": "Aro", "value": "18", "stock": 4 }
+    {
+      "product_slug": "colar-coracao-cravejado-prata",
+      "label": "Comprimento",
+      "value": "40 cm",
+      "stock": 3
+    },
+    {
+      "product_slug": "colar-coracao-cravejado-prata",
+      "label": "Comprimento",
+      "value": "45 cm",
+      "stock": 3
+    },
+    {
+      "product_slug": "colar-ponto-de-luz",
+      "label": "Comprimento",
+      "value": "40 cm",
+      "stock": 5
+    },
+    {
+      "product_slug": "colar-ponto-de-luz",
+      "label": "Comprimento",
+      "value": "45 cm",
+      "stock": 5
+    },
+    {
+      "product_slug": "anel-solitario-prata",
+      "label": "Aro",
+      "value": "14",
+      "stock": 3
+    },
+    {
+      "product_slug": "anel-solitario-prata",
+      "label": "Aro",
+      "value": "16",
+      "stock": 4
+    },
+    {
+      "product_slug": "anel-solitario-prata",
+      "label": "Aro",
+      "value": "18",
+      "stock": 2
+    },
+    {
+      "product_slug": "anel-aparador-dourado",
+      "label": "Aro",
+      "value": "14",
+      "stock": 2
+    },
+    {
+      "product_slug": "anel-aparador-dourado",
+      "label": "Aro",
+      "value": "16",
+      "stock": 0
+    },
+    {
+      "product_slug": "anel-aparador-dourado",
+      "label": "Aro",
+      "value": "18",
+      "stock": 4
+    }
   ],
   "settings": {
     "hero": {
@@ -52,7 +399,13 @@
       "image_alt": "Colares dourados e prateados pendurados sobre cetim branco (imagem de exemplo)"
     },
     "home": {
-      "marquee": ["Prata 925", "Aço Inoxidável", "Folheados Premium", "Recife — PE", "Atendimento pelo WhatsApp"],
+      "marquee": [
+        "Prata 925",
+        "Aço Inoxidável",
+        "Folheados Premium",
+        "Recife — PE",
+        "Atendimento pelo WhatsApp"
+      ],
       "featured_category_ids": [],
       "featured_title": "Escolhas da Dois Brilhos",
       "bestsellers_title": "Mais amadas",
@@ -67,17 +420,48 @@
       "text": "A Dois Brilhos é uma loja de joias de Recife — PE, com peças em Prata 925, Aço Inoxidável e Folheados Premium.\n\nNosso propósito é simples: joias lindas e acessíveis. O atendimento é feito de pessoa para pessoa, pelo WhatsApp, por Michael e Nicolly.",
       "image_url": "/demo/sobre.webp",
       "highlights": [
-        { "title": "Prata 925", "text": "Prata de lei para quem busca durabilidade." },
-        { "title": "Aço Inoxidável", "text": "Resistência para o dia a dia." },
-        { "title": "Folheados Premium", "text": "Acabamento dourado e prateado." }
+        {
+          "title": "Prata 925",
+          "text": "Prata de lei para quem busca durabilidade."
+        },
+        {
+          "title": "Aço Inoxidável",
+          "text": "Resistência para o dia a dia."
+        },
+        {
+          "title": "Folheados Premium",
+          "text": "Acabamento dourado e prateado."
+        }
+      ]
+    },
+    "care": {
+      "eyebrow": "Cuidados",
+      "title": "Cuidados com suas joias",
+      "intro": "Pequenos hábitos fazem suas peças durarem muito mais. Veja como conservar o brilho de cada material.",
+      "image_url": "/demo/categoria-brincos.webp",
+      "materials": [
+        {
+          "title": "Prata 925",
+          "text": "É natural que a prata escureça com o tempo, pelo contato com o ar e a umidade. Para devolver o brilho, use uma flanela própria para prata, sem produtos abrasivos."
+        },
+        {
+          "title": "Folheados",
+          "text": "O banho é uma camada fina de metal sobre a peça. Evite água, suor, perfumes e produtos químicos para preservá-lo por mais tempo e seque bem se a peça molhar."
+        },
+        {
+          "title": "Aço Inoxidável",
+          "text": "Resistente e ideal para o dia a dia. Para limpar, use água com sabão neutro, enxágue e seque bem com um pano macio."
+        }
       ],
-      "care_title": "Cuidados com suas joias",
-      "care_tips": [
+      "tips_title": "No dia a dia",
+      "tips": [
         "Evite contato com perfumes, cremes, cloro e água do mar.",
         "Retire as peças para dormir, praticar exercícios e tomar banho.",
         "Guarde cada joia separadamente, em local seco e protegido.",
-        "Limpe com uma flanela macia e seca após o uso."
-      ]
+        "Limpe com uma flanela macia e seca após o uso.",
+        "Coloque as joias por último, depois de perfume, creme e maquiagem."
+      ],
+      "note": "Ficou com alguma dúvida sobre como cuidar da sua peça? Fale com a gente pelo WhatsApp."
     },
     "contact": {
       "city": "Recife — PE",
@@ -96,8 +480,18 @@
       "note": "Os pedidos feitos pelo site são finalizados pelo WhatsApp e só são confirmados após o atendimento."
     },
     "attendants": [
-      { "id": "michael", "name": "Michael", "phone": "5581998070744", "active": true },
-      { "id": "nicolly", "name": "Nicolly", "phone": "5581996404201", "active": true }
+      {
+        "id": "michael",
+        "name": "Michael",
+        "phone": "5581998070744",
+        "active": true
+      },
+      {
+        "id": "nicolly",
+        "name": "Nicolly",
+        "phone": "5581996404201",
+        "active": true
+      }
     ],
     "instagram": {
       "handle": "doisbrilhos.ofc",

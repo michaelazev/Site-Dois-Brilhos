@@ -10,6 +10,7 @@ import { useCategories, useCollections, useProducts } from '@/hooks/queries';
 import { cn, effectivePrice } from '@/lib/format';
 import type { ProductFilter } from '@/types';
 import NotFoundPage from './NotFoundPage';
+import { isTouchDevice } from '@/hooks/useLiteMotion';
 
 type Mode = 'all' | 'category' | 'collection' | 'new' | 'bestsellers';
 
@@ -87,7 +88,7 @@ export default function ShopPage({ mode }: { mode: Mode }) {
 
       <section className="relative overflow-hidden bg-pearl pb-12 pt-32 md:pb-16 md:pt-40">
         <div className="container-lux">
-          <Reveal>
+          <Reveal eager>
             <nav aria-label="Trilha" className="mb-6 text-[0.65rem] uppercase tracking-[0.24em] text-mute">
               <Link to="/" className="hover:text-emerald">Início</Link> <span className="mx-2">/</span>
               <span className="text-emerald">{heading.eyebrow}</span>
@@ -95,14 +96,14 @@ export default function ShopPage({ mode }: { mode: Mode }) {
           </Reveal>
           {heading.title && <MaskText key={heading.title} as="h1" text={heading.title} className="text-5xl leading-none text-emerald md:text-7xl" />}
           {heading.description && (
-            <Reveal delay={0.2}>
+            <Reveal eager delay={0.2}>
               <p className="mt-5 max-w-xl text-mute">{heading.description}</p>
             </Reveal>
           )}
         </div>
       </section>
 
-      <div className="sticky top-0 z-30 border-b border-line bg-ivory/[0.97] md:bg-ivory/90 md:backdrop-blur-xl">
+      <div className={`sticky z-30 border-b border-line bg-ivory/[0.97] md:bg-ivory/90 md:backdrop-blur-xl ${isTouchDevice ? 'top-[4.5rem] lg:top-20' : 'top-0'}`}>
         <div className="container-lux flex items-center gap-4 py-3">
           <div className="no-scrollbar -mx-1 flex flex-1 gap-2 overflow-x-auto px-1">
             {chips.map((c) => (

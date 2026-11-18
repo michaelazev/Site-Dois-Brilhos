@@ -22,6 +22,7 @@ export function Reveal({
   as = 'div',
   y = isTouchDevice ? 18 : 28,
   amount = 0.1,
+  eager = false,
 }: {
   children: ReactNode;
   delay?: number;
@@ -29,7 +30,13 @@ export function Reveal({
   as?: Tag;
   y?: number;
   amount?: number;
+  /** Conteúdo do topo da página: no celular aparece pronto, sem animação de entrada. */
+  eager?: boolean;
 }) {
+  if (eager && isTouchDevice) {
+    const Plain = as;
+    return <Plain className={className}>{children}</Plain>;
+  }
   const Comp = motion[as];
   return (
     <Comp
@@ -58,7 +65,25 @@ export const staggerChild: Variants = {
 };
 
 /** Texto com linhas que sobem por trás de uma máscara (efeito editorial). */
-export function MaskText({ text, className, delay = 0, as = 'h1' }: { text: string; className?: string; delay?: number; as?: 'h1' | 'h2' | 'p' }) {
+export function MaskText({
+  text,
+  className,
+  delay = 0,
+  as = 'h1',
+  // No celular os títulos das páginas aparecem prontos (a animação a cada troca de
+  // página parecia carregamento). O banner da Home pede a animação na 1ª visita.
+  animateIn = !isTouchDevice,
+}: {
+  text: string;
+  className?: string;
+  delay?: number;
+  as?: 'h1' | 'h2' | 'p';
+  animateIn?: boolean;
+}) {
+  if (!animateIn) {
+    const Tag = as;
+    return <Tag className={className}>{text}</Tag>;
+  }
   const Comp = motion[as];
   const words = text.split(' ');
   return (

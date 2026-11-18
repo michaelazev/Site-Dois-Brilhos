@@ -11,6 +11,7 @@ import { ProductCarousel } from '@/components/product/ProductCarousel';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { useToast } from '@/components/ui/Toast';
 import { EASE } from '@/components/motion/Reveal';
+import { isTouchDevice } from '@/hooks/useLiteMotion';
 import { useProduct, useProducts, useSettings } from '@/hooks/queries';
 import { useCart, MAX_PER_ITEM } from '@/store/cart';
 import { api } from '@/services/api';
@@ -42,7 +43,7 @@ export default function ProductPage() {
       viewed.current = product.id;
       api.registerView(product.id).catch(() => {});
     }
-  }, [product]);
+  }, [product?.id]); // só ao trocar de produto (não ao completar os dados em segundo plano)
 
   const groups = useMemo(() => {
     const map = new Map<string, ProductVariant[]>();
@@ -125,13 +126,13 @@ export default function ProductPage() {
         </nav>
 
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <motion.div className="lg:col-span-7" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE }}>
+          <motion.div className="lg:col-span-7" initial={isTouchDevice ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE }}>
             <ProductGallery images={product.images} name={product.name} />
           </motion.div>
 
           <motion.div
             className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start"
-            initial="hidden"
+            initial={isTouchDevice ? false : 'hidden'}
             animate="visible"
             variants={{ visible: { transition: { staggerChildren: 0.07, delayChildren: 0.15 } } }}
           >
@@ -265,11 +266,19 @@ export default function ProductPage() {
               <div className="divide-y divide-line">
                 {product.description && <Accordion title="Descrição" defaultOpen>{product.description}</Accordion>}
                 {product.material && <Accordion title="Material">{product.material}</Accordion>}
-                {settings && settings.about.care_tips.length > 0 && (
-                  <Accordion title={settings.about.care_title}>
+                {settings && settings.care.tips.length > 0 && (
+                  <Accordion title={settings.care.title}>
+                    {(() => {
+                      // mostra primeiro o cuidado específico do material desta peça, se houver
+                      const m = settings.care.materials.find((x) => product.material && product.material.toLowerCase().includes(x.title.toLowerCase().replace(/s$/, '')));
+                      return m ? <p className="mb-3">{m.text}</p> : null;
+                    })()}
                     <ul className="list-inside list-disc space-y-1.5">
-                      {settings.about.care_tips.map((t) => <li key={t}>{t}</li>)}
+                      {settings.care.tips.map((t) => <li key={t}>{t}</li>)}
                     </ul>
+                    <Link to="/cuidados" className="link-underline mt-4 inline-block text-[0.68rem] uppercase tracking-[0.2em] text-emerald">
+                      Ver todos os cuidados
+                    </Link>
                   </Accordion>
                 )}
               </div>

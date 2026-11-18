@@ -22,7 +22,8 @@ export const qk = {
  * na hora com a última cópia salva no aparelho e é atualizada em segundo plano,
  * sem conteúdo "pipocando" na tela. Nunca usado para dados do painel.
  */
-const CACHE_PREFIX = 'db-cache-v1:';
+// Trocar a versão sempre que o formato dos dados mudar (descarta cópias antigas nos aparelhos).
+const CACHE_PREFIX = 'db-cache-v2:';
 const CACHE_MAX_AGE = 7 * 24 * 60 * 60 * 1000;
 
 function readCache<T>(key: readonly unknown[]): T | undefined {
@@ -62,6 +63,8 @@ export function useSettings() {
   return useQuery({
     ...cachedPublic(qk.settings, api.getSettings),
     ...(cached ? {} : { placeholderData: DEFAULT_SETTINGS }),
+    // Segurança extra: qualquer bloco que falte (ex.: cópia antiga no aparelho) vem do padrão.
+    select: (s) => ({ ...DEFAULT_SETTINGS, ...s }),
     staleTime: 5 * 60_000,
   });
 }

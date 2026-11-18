@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
@@ -7,6 +7,9 @@ import { MaskText, EASE } from '../motion/Reveal';
 import { Sparkle } from '../brand/Logo';
 import { useLiteMotion } from '@/hooks/useLiteMotion';
 import { introDelaySeconds } from '../layout/IntroLoader';
+
+/** A entrada animada do banner roda só na primeira vez que a Home aparece na visita. */
+let heroIntroPlayed = false;
 
 export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
   const ref = useRef<HTMLElement>(null);
@@ -18,6 +21,12 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, lite ? 1 : 0]);
 
   const introDelay = introDelaySeconds();
+  // Ao voltar para a Home, o banner já aparece pronto (antes a revelação rodava de novo
+  // e a foto parecia não ter carregado).
+  const [intro] = useState(() => !heroIntroPlayed);
+  useEffect(() => {
+    heroIntroPlayed = true;
+  }, []);
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-gradient-to-b from-pearl via-ivory to-ivory pt-24 lg:pt-20">
@@ -31,7 +40,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
         <motion.div style={lite ? undefined : { y: textY, opacity: fade }} className="relative z-10 lg:col-span-6 lg:pr-8">
           <motion.p
             className="eyebrow mb-6 flex items-center gap-3"
-            initial={{ opacity: 0, x: -14 }}
+            initial={intro && ({ opacity: 0, x: -14 })}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: introDelay, ease: EASE }}
           >
@@ -39,6 +48,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
           </motion.p>
 
           <MaskText
+            animateIn={intro}
             text={hero.title}
             delay={introDelay + 0.05}
             className="text-[3.2rem] leading-[0.98] text-emerald sm:text-7xl lg:text-[5.6rem] xl:text-[6.4rem]"
@@ -46,7 +56,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
 
           <motion.p
             className="mt-7 max-w-md text-base leading-relaxed text-mute sm:text-lg"
-            initial={{ opacity: 0, y: 14 }}
+            initial={intro && ({ opacity: 0, y: 14 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: introDelay + 0.35, ease: EASE }}
           >
@@ -55,7 +65,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
 
           <motion.div
             className="mt-10 flex flex-wrap items-center gap-5"
-            initial={{ opacity: 0, y: 14 }}
+            initial={intro && ({ opacity: 0, y: 14 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: introDelay + 0.45, ease: EASE }}
           >
@@ -72,7 +82,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
           <motion.div
             className="relative mx-auto aspect-[4/5] w-full max-w-[34rem] overflow-hidden rounded-t-[999px] bg-pearl shadow-[0_40px_80px_-40px_rgba(14,59,46,0.45)]"
             // No celular: subida + opacidade (GPU). No desktop: revelação por máscara.
-            initial={lite ? { opacity: 0, y: 30 } : { clipPath: 'inset(100% 0% 0% 0% round 999px 999px 0 0)' }}
+            initial={intro && (lite ? { opacity: 0, y: 30 } : { clipPath: 'inset(100% 0% 0% 0% round 999px 999px 0 0)' })}
             animate={lite ? { opacity: 1, y: 0 } : { clipPath: 'inset(0% 0% 0% 0% round 999px 999px 0 0)' }}
             transition={{ duration: lite ? 0.9 : 1.6, delay: introDelay, ease: lite ? EASE : [0.76, 0, 0.24, 1] }}
           >
@@ -86,7 +96,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
               className="absolute inset-0 h-[112%] w-full object-cover"
               // @ts-expect-error atributo válido de HTML
               fetchpriority="high"
-              initial={{ scale: lite ? 1.08 : 1.25 }}
+              initial={intro && ({ scale: lite ? 1.08 : 1.25 })}
               animate={{ scale: 1 }}
               transition={{ duration: lite ? 1.4 : 2.2, delay: introDelay, ease: EASE }}
             />
@@ -96,7 +106,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
           <motion.div
             aria-hidden="true"
             className="pointer-events-none absolute left-1/2 top-5 aspect-[4/5] w-full max-w-[34rem] -translate-x-[calc(50%-1.25rem)] rounded-t-[999px] border border-gold/50"
-            initial={{ opacity: 0 }}
+            initial={intro && ({ opacity: 0 })}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: introDelay + 0.6 }}
           />
@@ -104,7 +114,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
           <motion.div
             aria-hidden="true"
             className="absolute -left-2 bottom-16 text-gold sm:left-4 lg:-left-6"
-            initial={{ opacity: 0, scale: 0.4, rotate: -60 }}
+            initial={intro && ({ opacity: 0, scale: 0.4, rotate: -60 })}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1.2, delay: introDelay + 0.7, ease: EASE }}
           >
@@ -116,7 +126,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
 
           <motion.div
             className="absolute -right-1 top-1/3 hidden rotate-90 origin-right text-[0.6rem] uppercase tracking-[0.5em] text-mute xl:block"
-            initial={{ opacity: 0 }}
+            initial={intro && ({ opacity: 0 })}
             animate={{ opacity: 1 }}
             transition={{ delay: introDelay + 1 }}
           >
@@ -127,7 +137,7 @@ export function Hero({ hero }: { hero: SiteSettings['hero'] }) {
         <motion.a
           href="#inicio-categorias"
           className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[0.6rem] uppercase tracking-[0.4em] text-mute lg:flex"
-          initial={{ opacity: 0 }}
+          initial={intro && ({ opacity: 0 })}
           animate={{ opacity: 1 }}
           transition={{ delay: introDelay + 1.1 }}
           aria-label="Rolar para as categorias"

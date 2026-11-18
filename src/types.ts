@@ -156,8 +156,16 @@ export interface SiteSettings {
     text: string;
     image_url: string;
     highlights: Array<{ title: string; text: string }>;
-    care_title: string;
-    care_tips: string[];
+  };
+  care: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    image_url: string;
+    materials: Array<{ title: string; text: string }>;
+    tips_title: string;
+    tips: string[];
+    note: string;
   };
   contact: { city: string; email: string; hours: string; address: string };
   social: { instagram: string; linktree: string; tiktok: string; facebook: string };

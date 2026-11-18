@@ -8,6 +8,7 @@ import { useCategories, useCollections } from '@/hooks/queries';
 import { cn } from '@/lib/format';
 import { MobileMenu } from './MobileMenu';
 import { EASE } from '../motion/Reveal';
+import { isTouchDevice } from '@/hooks/useLiteMotion';
 
 export function Header() {
   const { scrollY } = useScroll();
@@ -21,7 +22,8 @@ export function Header() {
   useMotionValueEvent(scrollY, 'change', (y) => {
     const prev = scrollY.getPrevious() ?? 0;
     setScrolled(y > 24);
-    setHidden(y > 320 && y > prev && !menuOpen && !megaOpen);
+    // No celular o cabeçalho fica sempre visível (esconder/mostrar ao rolar ficava instável no Safari).
+    if (!isTouchDevice) setHidden(y > 320 && y > prev && !menuOpen && !megaOpen);
   });
 
   useEffect(() => {
@@ -71,6 +73,7 @@ export function Header() {
             <NavItem to="/novidades">Novidades</NavItem>
             <NavItem to="/mais-vendidos">Mais vendidos</NavItem>
             <NavItem to="/sobre">Sobre</NavItem>
+            <NavItem to="/cuidados">Cuidados</NavItem>
           </nav>
 
           <div className="flex items-center gap-1 text-emerald">

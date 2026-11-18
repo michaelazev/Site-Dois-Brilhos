@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { isTouchDevice } from '@/hooks/useLiteMotion';
 import { PageTransition } from '@/components/motion/PageTransition';
 import { Seo } from '@/components/Seo';
 import { MaskText, Reveal, staggerChild, staggerParent, VIEWPORT_MARGIN } from '@/components/motion/Reveal';
@@ -22,7 +24,7 @@ export default function AboutPage() {
             <MaskText as="h1" text={s.about.title} className="text-5xl leading-none text-emerald md:text-7xl" />
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-mute">
               {paragraphs.map((p, i) => (
-                <Reveal key={i} delay={0.2 + i * 0.1}>
+                <Reveal eager key={i} delay={0.2 + i * 0.1}>
                   <p>{p}</p>
                 </Reveal>
               ))}
@@ -30,7 +32,7 @@ export default function AboutPage() {
           </div>
           <motion.div
             className="md:col-span-5 md:col-start-8"
-            initial={{ opacity: 0, y: 30 }}
+            initial={isTouchDevice ? false : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           >
@@ -51,25 +53,6 @@ export default function AboutPage() {
         </motion.ul>
       </section>
 
-      {s.about.care_tips.length > 0 && (
-        <section id="cuidados" className="grain relative overflow-hidden bg-emerald py-20 text-ivory md:py-28">
-          <div className="container-lux grid gap-12 md:grid-cols-12">
-            <Reveal className="md:col-span-4">
-              <p className="eyebrow mb-4 !text-gold-light">Cuidados</p>
-              <h2 className="text-5xl leading-none">{s.about.care_title}</h2>
-            </Reveal>
-            <motion.ol className="space-y-6 md:col-span-7 md:col-start-6" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05, margin: VIEWPORT_MARGIN }} variants={staggerParent}>
-              {s.about.care_tips.map((t, i) => (
-                <motion.li key={t} variants={staggerChild} className="flex gap-6 border-b border-ivory/10 pb-6">
-                  <span className="font-display text-3xl text-gold-light">{String(i + 1).padStart(2, '0')}</span>
-                  <p className="pt-2 text-lg leading-relaxed text-ivory/80">{t}</p>
-                </motion.li>
-              ))}
-            </motion.ol>
-          </div>
-        </section>
-      )}
-
       <section className="container-lux py-20 text-center md:py-28">
         <Reveal>
           <p className="eyebrow mb-4">Atendimento</p>
@@ -81,6 +64,9 @@ export default function AboutPage() {
               </a>
             ))}
           </div>
+          <Link to="/cuidados" className="link-underline mt-10 inline-block text-[0.7rem] font-medium uppercase tracking-[0.24em] text-emerald">
+            Veja como cuidar das suas joias
+          </Link>
         </Reveal>
       </section>
     </PageTransition>

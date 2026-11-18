@@ -137,7 +137,7 @@ export default function CheckoutPage() {
       <PageTransition>
         <Seo title="Finalizar pedido" noindex />
         <div className="container-lux flex min-h-[70vh] flex-col items-center justify-center pt-24 text-center">
-          <p className="font-display text-4xl text-emerald">Sua sacola está vazia</p>
+          <h1 className="font-display text-4xl text-emerald">Sua sacola está vazia</h1>
           <p className="mt-3 text-mute">Adicione peças para finalizar o pedido.</p>
           <Link to="/loja" className="btn btn-primary mt-8">Explorar a loja</Link>
         </div>
@@ -149,7 +149,7 @@ export default function CheckoutPage() {
     <PageTransition>
       <Seo title="Finalizar pedido" noindex />
       <div className="container-lux pb-24 pt-28 md:pt-32">
-        <Reveal>
+        <Reveal eager>
           <Link to="/carrinho" className="mb-6 inline-flex items-center gap-2 text-[0.68rem] uppercase tracking-[0.22em] text-mute hover:text-emerald">
             <ArrowLeft className="size-3.5" /> Voltar para a sacola
           </Link>
@@ -176,7 +176,7 @@ export default function CheckoutPage() {
 
         <form ref={formRef} onSubmit={onSubmit} noValidate className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <Reveal>
+            <Reveal eager>
               <Step n={1} title="Seus dados" />
               <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
                 <Field label="Nome completo" error={errors.name} className="sm:col-span-2">
@@ -197,7 +197,7 @@ export default function CheckoutPage() {
               </div>
             </Reveal>
 
-            <Reveal className="mt-14">
+            <Reveal eager className="mt-14">
               <Step n={2} title="Enviar pedido para" />
               <div className="grid gap-4 sm:grid-cols-2" role="radiogroup" aria-label="Escolha o atendente" aria-invalid={!!errors.attendant}>
                 {attendants.map((a) => {
@@ -231,7 +231,7 @@ export default function CheckoutPage() {
               {attendants.length === 0 && <p className="mt-3 text-sm text-rose-700">Nenhum atendente disponível no momento.</p>}
             </Reveal>
 
-            <Reveal className="mt-10">
+            <Reveal eager className="mt-10">
               <button type="button" onClick={() => setShowPreview((v) => !v)} className="flex items-center gap-2 text-[0.68rem] uppercase tracking-[0.22em] text-emerald" aria-expanded={showPreview}>
                 <ChevronDown className={cn('size-4 transition-transform duration-500', showPreview && 'rotate-180')} />
                 Ver mensagem que será enviada

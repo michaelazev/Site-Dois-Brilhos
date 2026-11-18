@@ -1,13 +1,24 @@
 import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { EASE } from './Reveal';
+import { isTouchDevice } from '@/hooks/useLiteMotion';
 
 /**
- * Transição entre páginas: saída curtíssima (só opacidade) e entrada suave.
- * A volta ao topo acontece no intervalo em que a tela está invisível
- * (ver onExitComplete em App.tsx), evitando o "pulo" de rolagem.
+ * Transição entre páginas.
+ * - Computador: saída curtíssima (opacidade), entrada suave e linha dourada no topo.
+ * - Celular: troca INSTANTÂNEA. Apagar e acender a página inteira parecia que o site
+ *   estava recarregando (principalmente no Safari do iPhone, que já anima o gesto de voltar).
+ * A volta ao topo acontece em App.tsx (onExitComplete).
  */
 export function PageTransition({ children }: { children: ReactNode }) {
+  if (isTouchDevice) {
+    return (
+      <main id="conteudo" className="min-h-[70vh]">
+        {children}
+      </main>
+    );
+  }
+
   return (
     <>
       <motion.div
