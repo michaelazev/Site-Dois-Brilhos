@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FAF6EF"/><stop offset="1" stop-color="#EADFCF"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#D3D5D8"/>
+      <stop offset=".7" stop-color="#8F949A"/><stop offset="1" stop-color="#ECEDEF"/>
+    </linearGradient>
+    <linearGradient id="metalLine" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="160" y2="420" spreadMethod="reflect">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".4" stop-color="#D3D5D8"/>
+      <stop offset=".75" stop-color="#8F949A"/><stop offset="1" stop-color="#ECEDEF"/>
+    </linearGradient>
+    <radialGradient id="pearl" cx=".35" cy=".3" r=".75">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#F3ECE0"/><stop offset="1" stop-color="#CDBFA8"/>
+    </radialGradient>
+    <radialGradient id="goldball" cx=".35" cy=".3" r=".8">
+      <stop offset="0" stop-color="#FFF6D8"/><stop offset=".4" stop-color="#E2C07A"/><stop offset="1" stop-color="#8E6A2E"/>
+    </radialGradient>
+    <radialGradient id="emeraldstone" cx=".4" cy=".35" r=".8">
+      <stop offset="0" stop-color="#7FE0A8"/><stop offset=".45" stop-color="#14935A"/><stop offset="1" stop-color="#05442A"/>
+    </radialGradient>
+    <radialGradient id="zircon" cx=".4" cy=".35" r=".8">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#E9EEF3"/><stop offset="1" stop-color="#AEB8C2"/>
+    </radialGradient>
+    <radialGradient id="onyx" cx=".35" cy=".3" r=".8">
+      <stop offset="0" stop-color="#4A4A4A"/><stop offset=".5" stop-color="#151515"/><stop offset="1" stop-color="#000"/>
+    </radialGradient>
+    <filter id="blur40" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+    <filter id="blur8" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity=".18"/>
+    </filter>
+  </defs><rect width="800" height="1000" fill="url(#bg)"/><rect x="537" y="-300" width="109" height="1600" fill="#FFFFFF" opacity="0.55" transform="rotate(-29.8 400 500)" filter="url(#blur40)"/><rect x="12" y="-300" width="153" height="1600" fill="#D9CBB6" opacity="0.35" transform="rotate(-34.4 400 500)" filter="url(#blur40)"/><rect x="479" y="-300" width="177" height="1600" fill="#FFFFFF" opacity="0.55" transform="rotate(-13.3 400 500)" filter="url(#blur40)"/><rect x="166" y="-300" width="111" height="1600" fill="#D9CBB6" opacity="0.35" transform="rotate(-31.2 400 500)" filter="url(#blur40)"/><rect x="659" y="-300" width="125" height="1600" fill="#FFFFFF" opacity="0.55" transform="rotate(-27.6 400 500)" filter="url(#blur40)"/><path d="M160 120 C184 606, 280 660, 400 660 S616 606, 640 120" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="5.2" transform="translate(3 6)" filter="url(#blur8)"/>
+  <path d="M160 120 C184 606, 280 660, 400 660 S616 606, 640 120" fill="none" stroke="url(#metalLine)" stroke-width="3.2" stroke-dasharray="5 2.2" stroke-linecap="round"/><g transform="translate(400 701.6) scale(2.6)" filter="url(#soft)">
+    <circle r="15" fill="url(#metal)"/><circle r="12" fill="url(#zircon)"/>
+    <path d="M-6 -4 L0 -10 L6 -4 L0 8Z" fill="#fff" opacity=".5"/>
+    <path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(5 -6) scale(5)" fill="#fff" opacity="0.9"/></g><path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(150 180) scale(9)" fill="#FFFFFF" opacity="0.9"/><path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(660 260) scale(6)" fill="#FFFFFF" opacity="0.8"/><path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(610 820) scale(7)" fill="#FFFFFF" opacity="0.7"/><text x="400" y="966" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="5" fill="#9C8C74" opacity=".85">EXEMPLO · DOIS BRILHOS</text></svg>

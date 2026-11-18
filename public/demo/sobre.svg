@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1200" width="1000" height="1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F3E6D2"/><stop offset="1" stop-color="#E2CDAE"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6E7BC"/><stop offset=".35" stop-color="#DDBB76"/>
+      <stop offset=".7" stop-color="#B08A47"/><stop offset="1" stop-color="#EAD49C"/>
+    </linearGradient>
+    <linearGradient id="metalLine" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="160" y2="420" spreadMethod="reflect">
+      <stop offset="0" stop-color="#F6E7BC"/><stop offset=".4" stop-color="#DDBB76"/>
+      <stop offset=".75" stop-color="#B08A47"/><stop offset="1" stop-color="#EAD49C"/>
+    </linearGradient>
+    <radialGradient id="pearl" cx=".35" cy=".3" r=".75">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#F3ECE0"/><stop offset="1" stop-color="#CDBFA8"/>
+    </radialGradient>
+    <radialGradient id="goldball" cx=".35" cy=".3" r=".8">
+      <stop offset="0" stop-color="#FFF6D8"/><stop offset=".4" stop-color="#E2C07A"/><stop offset="1" stop-color="#8E6A2E"/>
+    </radialGradient>
+    <radialGradient id="emeraldstone" cx=".4" cy=".35" r=".8">
+      <stop offset="0" stop-color="#7FE0A8"/><stop offset=".45" stop-color="#14935A"/><stop offset="1" stop-color="#05442A"/>
+    </radialGradient>
+    <radialGradient id="zircon" cx=".4" cy=".35" r=".8">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#E9EEF3"/><stop offset="1" stop-color="#AEB8C2"/>
+    </radialGradient>
+    <radialGradient id="onyx" cx=".35" cy=".3" r=".8">
+      <stop offset="0" stop-color="#4A4A4A"/><stop offset=".5" stop-color="#151515"/><stop offset="1" stop-color="#000"/>
+    </radialGradient>
+    <filter id="blur40" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+    <filter id="blur8" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity=".18"/>
+    </filter>
+  </defs><rect width="1000" height="1200" fill="url(#bg)"/><rect x="888" y="-360" width="97" height="1920" fill="#FBF3E6" opacity="0.55" transform="rotate(-11.5 500 600)" filter="url(#blur40)"/><rect x="1099" y="-360" width="122" height="1920" fill="#C9AF8A" opacity="0.35" transform="rotate(-14.5 500 600)" filter="url(#blur40)"/><rect x="219" y="-360" width="168" height="1920" fill="#FBF3E6" opacity="0.55" transform="rotate(-33.4 500 600)" filter="url(#blur40)"/><rect x="229" y="-360" width="163" height="1920" fill="#C9AF8A" opacity="0.35" transform="rotate(-33.1 500 600)" filter="url(#blur40)"/><rect x="314" y="-360" width="158" height="1920" fill="#FBF3E6" opacity="0.55" transform="rotate(-27.9 500 600)" filter="url(#blur40)"/><g transform="translate(330 560) rotate(-8)" filter="url(#soft)">
+    <rect x="-150" y="-200" width="300" height="400" rx="6" fill="#0E3B2E" stroke="#D8BE8A" stroke-opacity=".35"/>
+    <text x="0" y="-110" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#EFE3C8">Dois</text>
+    <text x="0" y="-70" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#EFE3C8">Brilhos</text>
+    <path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(58 -122) scale(12)" fill="#D8BE8A" opacity="1"/>
+    <ellipse cx="-49" cy="92" rx="30.6" ry="9.520000000000001" fill="#000" opacity=".16" filter="url(#blur8)"/>
+  <circle cx="-55" cy="50" r="38" fill="url(#metal)"/><circle cx="-55" cy="50" r="34" fill="url(#zircon)"/><path d="M-72 43.2 L-55 26.200000000000003 L-38 43.2 L-55 70.4Z" fill="#fff" opacity=".28"/><path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(-43.1 38.1) scale(11.899999999999999)" fill="#fff" opacity="0.95"/><ellipse cx="61" cy="92" rx="30.6" ry="9.520000000000001" fill="#000" opacity=".16" filter="url(#blur8)"/>
+  <circle cx="55" cy="50" r="38" fill="url(#metal)"/><circle cx="55" cy="50" r="34" fill="url(#zircon)"/><path d="M38 43.2 L55 26.200000000000003 L72 43.2 L55 70.4Z" fill="#fff" opacity=".28"/><path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(66.9 38.1) scale(11.899999999999999)" fill="#fff" opacity="0.95"/></g><g transform="translate(670 640) rotate(7)" filter="url(#soft)">
+    <rect x="-150" y="-200" width="300" height="400" rx="6" fill="#0E3B2E" stroke="#D8BE8A" stroke-opacity=".35"/>
+    <text x="0" y="-110" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#EFE3C8">Dois</text>
+    <text x="0" y="-70" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#EFE3C8">Brilhos</text>
+    <path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(58 -122) scale(12)" fill="#D8BE8A" opacity="1"/>
+    <ellipse cx="-49" cy="92" rx="30.6" ry="9.520000000000001" fill="#000" opacity=".16" filter="url(#blur8)"/>
+  <circle cx="-55" cy="50" r="38" fill="url(#metal)"/><circle cx="-55" cy="50" r="34" fill="url(#emeraldstone)"/><path d="M-72 43.2 L-55 26.200000000000003 L-38 43.2 L-55 70.4Z" fill="#fff" opacity=".28"/><path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(-43.1 38.1) scale(11.899999999999999)" fill="#fff" opacity="0.95"/><ellipse cx="61" cy="92" rx="30.6" ry="9.520000000000001" fill="#000" opacity=".16" filter="url(#blur8)"/>
+  <circle cx="55" cy="50" r="38" fill="url(#metal)"/><circle cx="55" cy="50" r="34" fill="url(#emeraldstone)"/><path d="M38 43.2 L55 26.200000000000003 L72 43.2 L55 70.4Z" fill="#fff" opacity=".28"/><path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(66.9 38.1) scale(11.899999999999999)" fill="#fff" opacity="0.95"/></g><path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(160 200) scale(12)" fill="#D8BE8A" opacity="0.9"/><path d="M0 -1 C0.08 -0.3 0.3 -0.08 1 0 C0.3 0.08 0.08 0.3 0 1 C-0.08 0.3 -0.3 0.08 -1 0 C-0.3 -0.08 -0.08 -0.3 0 -1Z" transform="translate(860 1020) scale(9)" fill="#D8BE8A" opacity="0.8"/><text x="500" y="1166" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="5" fill="#8E7655" opacity=".85">EXEMPLO · DOIS BRILHOS</text></svg>
